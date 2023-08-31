@@ -7,7 +7,7 @@ import { HiDownload } from "react-icons/hi";
 
 export const Main = () => {
   const handleDownload = () => {
-    const cvUrl = "/AbdulrahmanAlsamarai.pdf";
+    const cvUrl = "/AbdulrahmanAlsamaraie.pdf";
     window.open(cvUrl, "_blank");
   };
   return (
