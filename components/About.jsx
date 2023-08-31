@@ -12,15 +12,15 @@ const About = () => {
                     <h2 className='py-4'>Who I Am</h2>
                     <p className='py-2 text-gray-600 underline'>I am not a normal developer </p>
                     <p className='py-2 text-gray-600'>
-                        I'm a passionate creator in the realm of web development.
+                        I&apos;m a passionate creator in the realm of web development.
                         My journey began during my time as a Computer Engineering student at Mosul University,
                         where I embarked on a transformative exploration of coding and design. This quest continued at
-                        Sakarya University, and since 2012, I've been on an exciting path of crafting visually captivating
+                        Sakarya University, and since 2012, I&apos;'ve been on an exciting path of crafting visually captivating
                         and functionally robust websites.
                     </p>
                     <p className='py-2 text-gray-600'>
                         My expertise lies in the meticulous crafting of mobile-responsive front-end UI applications that seamlessly
-                        interact with APIs and backend frameworks. I'm driven by an insatiable hunger for continuous learning, firmly
+                        interact with APIs and backend frameworks. I&apos;m driven by an insatiable hunger for continuous learning, firmly
                         believing that there are countless pathways to achieving excellence. While I excel in constructing front-end
                         applications using HTML, CSS, JavaScript, and React, my adaptability allows me to swiftly embrace novel technology stacks as demanded by each project.
                     </p>

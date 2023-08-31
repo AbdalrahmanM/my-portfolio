@@ -14,11 +14,11 @@ export const Main = () => {
     <div id='home' className='w-full h-screen text-center max-sm:pt-24 section-slide-in'>
       <div className='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center'>
         <div>
-          <p className='uppercase text-sm tracking-widest text-gray-600'>Let's Build Something Extraordinary Together!</p>
-          <h1 className='py-4 text-gray-700'>Hi, I'm <span className='text-[#5651e5]'>ABDULRAHMAN</span></h1>
+          <p className='uppercase text-sm tracking-widest text-gray-600'>Let&apos;s Build Something Extraordinary Together!</p>
+          <h1 className='py-4 text-gray-700'>Hi, I&apos;m <span className='text-[#5651e5]'>ABDULRAHMAN</span></h1>
           <h1 className='py-4 text-gray-700'>A Front-End Web Developer</h1>
           <p className='py-4 text-gray-600 max-w-[70%] m-auto'>with a passion for creating immersive digital experiences that seamlessly
-            blend innovative design and flawless functionality. My expertise lies in responsive web development, and I'm excited to contribute to
+            blend innovative design and flawless functionality. My expertise lies in responsive web development, and I&apos;m excited to contribute to
             dynamic projects that leave a lasting impact on user engagement.
           </p>
           <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
