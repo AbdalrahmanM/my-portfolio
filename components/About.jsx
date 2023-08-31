@@ -5,14 +5,14 @@ import Link from "next/link";
 
 const About = () => {
     return (
-        <div id="about" className="w-full md:h-auto p-2 flex items-center py-16 max-sm:py-24 section-slide-in">
+        <div id="about" className="w-full md:h-auto p-2 flex items-center py-16 max-sm:py-28 section-slide-in">
             <div className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8">
                 <div className="col-span-2">
                     <p className=" uppercase text-xl tracking-widest text-[#5651e5]">About</p>
                     <h2 className="py-4">Who I Am</h2>
                     <p className="py-2 text-gray-600 underline">I am not a normal developer </p>
                     <p className="py-2 text-gray-600">
-                        I&apos;m a passionate creator in the realm of web development.
+                        I&apos;m <span className="text-[#5651e5]">Abdulrahman Mudher</span> a passionate creator in the realm of web development.
                         My journey began during my time as a Computer Engineering student at Mosul University,
                         where I embarked on a transformative exploration of coding and design. This quest continued at
                         Sakarya University, and since 2012, I&apos;ve been on an exciting path of crafting visually captivating
