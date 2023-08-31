@@ -6,10 +6,7 @@ import Link from "next/link";
 import { HiDownload } from "react-icons/hi";
 
 export const Main = () => {
-  const handleDownload = () => {
-    const cvUrl = "/AbdulrahmanAlsamaraie.pdf";
-    window.open(cvUrl, "_blank");
-  };
+
   return (
     <div id="home" className="w-full h-screen text-center max-sm:pt-24 section-slide-in">
       <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
@@ -44,7 +41,7 @@ export const Main = () => {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <a href="/abdulrahmanalsamarai.pdf" download>
+            <a href="/abdulrahmanalsamaraie.pdf" download>
               <button className="flex items-center justify-center w-auto px-8 py-2 mt-4">
                 Download CV<span className="ml-2"> <HiDownload /></span>
               </button>
