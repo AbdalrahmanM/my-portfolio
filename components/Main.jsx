@@ -19,30 +19,32 @@ export const Main = () => {
             dynamic projects that leave a lasting impact on user engagement.
           </p>
           <div className="flex items-center justify-between max-w-[330px] m-auto py-4">
-            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
               <Link href="https://www.linkedin.com/in/abdulrahman-alsamaraie/">
                 <FaLinkedinIn />
               </Link>
             </div>
-            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
               <Link href="https://github.com/AbdalrahmanM">
                 <FaGithub />
               </Link>
             </div>
-            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
               <Link href="mailto:abdodj18@email.com">
                 <AiOutlineMail />
               </Link>
             </div>
-            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+            <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
               <Link href="https://discord.com/channels/abdulrahman94M#0731">
                 <BsDiscord />
               </Link>
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <a href="/cv.pdf" className="flex items-center justify-center w-auto px-8 py-2 mt-4 shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white" download>   
-                Download CV<span className="ml-2"> <HiDownload /></span>
+            <a href="/cv.pdf" download>
+              <button className="flex items-center justify-center group w-auto px-8 py-2 mt-4">
+                Download CV<span className="ml-2"> <HiDownload className="group-hover:translate-y-1"/></span>
+              </button>
             </a>
           </div>
         </div>

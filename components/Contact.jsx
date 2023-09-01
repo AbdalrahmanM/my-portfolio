@@ -49,22 +49,22 @@ const Contact = () => {
                             <div>
                                 <p className="uppercase pt-8">Connect With Me</p>
                                 <div className="flex items-center justify-between py-4">
-                                    <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                                    <div className="rounded-full shadow-lg shadow-gray-400  p-4 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
                                         <Link href="https://www.linkedin.com/in/abdulrahman-alsamaraie/">
                                             <FaLinkedinIn />
                                         </Link>
                                     </div>
-                                    <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                                    <div className="rounded-full shadow-lg shadow-gray-400  p-4 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
                                         <Link href="https://github.com/AbdalrahmanM">
                                             <FaGithub />
                                         </Link>
                                     </div>
-                                    <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                                    <div className="rounded-full shadow-lg shadow-gray-400  p-4 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
                                         <Link href="mailto:abdodj18@email.com">
                                             <AiOutlineMail />
                                         </Link>
                                     </div>
-                                    <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                                    <div className="rounded-full shadow-lg shadow-gray-400  p-4 cursor-pointer hover:scale-110 ease-in duration-300 hover:rotate-[360deg]">
                                         <Link href="https://discord.com/channels/abdulrahman94M#0731">
                                             <BsDiscord />
                                         </Link>

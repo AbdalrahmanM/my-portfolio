@@ -59,11 +59,11 @@ export const Navbar = () => {
                 }
                 <div>
                     {nav ? (
-                        <div onClick={handleNav} className={`${showContent ? "fade-in" : "hidden"} rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500`}>
+                        <div onClick={handleNav} className={`${showContent ? "fade-in" : "hidden"} hover:rotate-[360deg] rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 `}>
                             <AiOutlineClose size={25} className={`${showContent ? "fade-in" : "hidden"}`} />
                         </div>
                     ) : (
-                        <div onClick={handleNav} className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500">
+                        <div onClick={handleNav} className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 hover:rotate-[360deg]">
                             <AiOutlineMenu size={25} />
                         </div>
                     )}
@@ -71,7 +71,7 @@ export const Navbar = () => {
             </div>
             {!nav && (
                 <div className={`flex items-center justify-between h-20 px-4 ${nav ? "w-full" : "w-20"}`}>
-                    <div className={`rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500`}>
+                    <div className={`rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 hover:rotate-[360deg]`}>
                         <Link href="/#home">
                             <AiOutlineHome size={25} />
                         </Link>
@@ -112,22 +112,22 @@ export const Navbar = () => {
                     <div className="pt-40">
                         <p className="uppercase font-bold tracking-widest text-[#5651e5]">Let&apos;s Connect</p>
                         <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
                                 <Link href="https://www.linkedin.com/in/abdulrahman-alsamaraie/">
                                     <FaLinkedinIn />
                                 </Link>
                             </div>
-                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
                                 <Link href="https://github.com/AbdalrahmanM">
                                     <FaGithub />
                                 </Link>
                             </div>
-                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
                                 <Link href="mailto:abdodj18@email.com">
                                     <AiOutlineMail />
                                 </Link>
                             </div>
-                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                            <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
                                 <Link href="https://discord.com/channels/abdulrahman94M#0731">
                                     <BsDiscord />
                                 </Link>
