@@ -41,10 +41,8 @@ export const Main = () => {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <a href="/abdulrahmanalsamaraie.pdf" download>
-              <p className="flex items-center justify-center w-auto px-8 py-2 mt-4 shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white">
+            <a href="/cv.pdf" className="flex items-center justify-center w-auto px-8 py-2 mt-4 shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white" download>   
                 Download CV<span className="ml-2"> <HiDownload /></span>
-              </p>
             </a>
           </div>
         </div>
