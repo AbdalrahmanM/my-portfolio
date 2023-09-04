@@ -44,7 +44,7 @@ const givingly = () => {
                             <p className='text-gray-600 py-2 flex items-center'><RiRadioButtonFill className='pr-1' />HTML</p>
                             <p className='text-gray-600 py-2 flex items-center'><RiRadioButtonFill className='pr-1' />TAILWIND</p>
                             <p className='text-gray-600 py-2 flex items-center'><RiRadioButtonFill className='pr-1' />FIREBASE</p>
-                            <p className='text-gray-600 py-2 flex items-center'><RiRadioButtonFill className='pr-1' />React</p>
+                            <p className='text-gray-600 py-2 flex items-center'><RiRadioButtonFill className='pr-1' />NextJS</p>
                             <p className='text-gray-600 py-2 flex items-center'><RiRadioButtonFill className='pr-1' />REDUX</p>
                         </div>
                     </div>

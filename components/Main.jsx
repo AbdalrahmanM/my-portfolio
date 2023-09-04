@@ -3,7 +3,6 @@ import { AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa"
 import { BsDiscord } from "react-icons/bs"
 import Link from "next/link";
-import { HiDownload } from "react-icons/hi";
 
 export const Main = () => {
 
@@ -39,13 +38,6 @@ export const Main = () => {
                 <BsDiscord />
               </Link>
             </div>
-          </div>
-          <div className="flex items-center justify-center">
-            <a href="/cv.pdf" download>
-              <button className="flex items-center justify-center group w-auto px-8 py-2 mt-4">
-                Download CV<span className="ml-2"> <HiDownload className="group-hover:translate-y-1"/></span>
-              </button>
-            </a>
           </div>
         </div>
       </div>

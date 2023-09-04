@@ -7,6 +7,7 @@ import { AiOutlineClose, AiOutlineMail, AiOutlineMenu, AiOutlineHome, AiFillFile
 import { FaLinkedinIn, FaGithub } from "react-icons/fa"
 import { BsDiscord } from "react-icons/bs"
 import a from "../public/assets/Logo.png"
+import icon from '../public/icon.png'
 
 export const Navbar = () => {
     const [shadow, setShadow] = useState(false)
@@ -75,6 +76,15 @@ export const Navbar = () => {
                         <Link href="/#home">
                             <AiOutlineHome size={25} />
                         </Link>
+                    </div>
+                </div>)
+            }
+            {!nav && (
+                <div className={`flex items-center justify-between h-20 px-4 ${nav ? "w-full" : "w-20"}`}>
+                    <div className={`rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 hover:rotate-[360deg]`}>
+                        <a href="/cv.pdf" title="Download CV" download>
+                            <Image src={icon} size={25} />
+                        </a>
                     </div>
                 </div>)
             }
