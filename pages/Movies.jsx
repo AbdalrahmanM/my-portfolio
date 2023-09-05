@@ -30,7 +30,7 @@ const movies = () => {
                         The Movie DB API, this application delivers a seamless and visually appealing experience for movie
                         enthusiasts.
                     </p>
-                    <Link href='https://202303-prm-tr-few.github.io/movie-project-room-7-hunc-ebla-abdulrahman/index.html'>
+                    <Link href='https://movies-site-beryl.vercel.app/'>
                         <button className='px-8 py-2 mt-4 mr-8'>Demo</button>
                     </Link>
                     <Link href='https://github.com/AbdalrahmanM/MoviesSite'>
