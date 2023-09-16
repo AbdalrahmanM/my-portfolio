@@ -3,6 +3,7 @@ import ProjectItem from "./ProjectItem";
 import Givingly from "../public/assets/projects/Givingly.jpg";
 import Movies from "../public/assets/projects/Movies.jpg";
 import hangman from "../public/assets/projects/hangman.jpg";
+import netflix from "../public/assets/projects/netflix.jpg";
 
 const Projects = () => {
     return (
@@ -13,6 +14,7 @@ const Projects = () => {
                 <ProjectItem backgroundImg={Givingly} projectUrl="/Givingly"/>
                 <ProjectItem backgroundImg={Movies} projectUrl="/Movies"/>
                 <ProjectItem backgroundImg={hangman} projectUrl="/hangman"/>
+                <ProjectItem backgroundImg={netflix} projectUrl="/Netflix"/>
             </div>
         </div>
     )
