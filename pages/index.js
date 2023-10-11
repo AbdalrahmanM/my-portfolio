@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className='ml-14 pl-[1.5rem] pr-[0.5rem] '>
       <Head>
-        <title>A MUDHER</title>
+        <title>ABDULRAHMAN MUDHER</title>
       </Head>
       <Main />
       <About />
