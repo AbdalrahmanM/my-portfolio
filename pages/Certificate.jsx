@@ -6,6 +6,8 @@ import JS from "@/public/JS.jpg";
 import restApi from "@/public/restApi.png";
 import JSBasic from "@/public/JSBasic.png";
 import JSIntermediate from "@/public/JSIntermediate.png"
+import react from "@/public/react.png"
+
 import Link from "next/link";
 
 const Certificate = () => {
@@ -92,6 +94,20 @@ const Certificate = () => {
             <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
               <p className="pb-4 pt-2 text-white text-center"></p>
               <Link href="https://www.hackerrank.com/certificates/8f3a4f3ca8e7">
+                <p className="text-center py-3 px-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer">
+                  More Info
+                </p>
+              </Link>
+            </div>
+          </div>
+          <div className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#5651e5] to-[#709dff]">
+            <Image
+              src={react}
+              className="rounded-xl group-hover:opacity-10"
+            />
+            <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+              <p className="pb-4 pt-2 text-white text-center"></p>
+              <Link href="https://www.hackerrank.com/certificates/f5d2a7051b52">
                 <p className="text-center py-3 px-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer">
                   More Info
                 </p>
