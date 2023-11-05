@@ -26,7 +26,7 @@ const Carshow = () => {
           <h2 className="my-4">Overview</h2>
           <p>
             Car Showcase is a web application that allows you to explore a wide
-            range of cars from various manufacturers. Whether you're a car
+            range of cars from various manufacturers. Whether you&apos;re a car
             enthusiast or looking for your dream ride, this platform has you
             covered. It offers an intuitive and user-friendly interface, making
             it easy to discover and compare different car models.
@@ -50,7 +50,7 @@ const Carshow = () => {
                 <RiRadioButtonFill className="pr-1" />
                 TAILWIND
               </p>
-              
+
               <p className="text-gray-600 py-2 flex items-center">
                 <RiRadioButtonFill className="pr-1" />
                 NextJS
