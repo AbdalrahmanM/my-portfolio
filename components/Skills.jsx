@@ -10,6 +10,7 @@ import Firebase from "../public/assets/skills/firebase.png";
 import NextJS from "../public/assets/skills/nextjs.png";
 import C from "../public/assets/skills/csharp.png"
 import redux from "../public/assets/skills/redux.png"
+import Git from "../public/assets/skills/Git.png"
 const Skills = () => {
     return (
         <div id="skills" className="w-full lg:h-screen p-2 section-slide-in">
@@ -62,6 +63,16 @@ const Skills = () => {
                     <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
                         <div className="grid grid-cols-2 gap-4 justify-center items-center">
                             <div className="m-auto">
+                                <Image src={NextJS} width="64px" height="64px" alt="/" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center">
+                                <h3 className="uppercase">NextJS</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
+                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
+                            <div className="m-auto">
                                 <Image src={Tailwind} width="64px" height="64px" alt="/" />
                             </div>
                             <div className="flex flex-col items-center justify-center">
@@ -82,20 +93,20 @@ const Skills = () => {
                     <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
                         <div className="grid grid-cols-2 gap-4 justify-center items-center">
                             <div className="m-auto">
-                                <Image src={Firebase} width="64px" height="64px" alt="/" />
+                                <Image src={Git} width="64px" height="64px" alt="/" />
                             </div>
                             <div className="flex flex-col items-center justify-center">
-                                <h3 className="uppercase">Firebase</h3>
+                                <h3 className="uppercase">Git</h3>
                             </div>
                         </div>
                     </div>
                     <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
                         <div className="grid grid-cols-2 gap-4 justify-center items-center">
                             <div className="m-auto">
-                                <Image src={NextJS} width="64px" height="64px" alt="/" />
+                                <Image src={Firebase} width="64px" height="64px" alt="/" />
                             </div>
                             <div className="flex flex-col items-center justify-center">
-                                <h3 className="uppercase">NextJS</h3>
+                                <h3 className="uppercase">Firebase</h3>
                             </div>
                         </div>
                     </div>
