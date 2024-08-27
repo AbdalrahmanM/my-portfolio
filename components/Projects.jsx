@@ -5,6 +5,9 @@ import Movies from "../public/assets/projects/Movies.jpg";
 import hangman from "../public/assets/projects/hangman.jpg";
 import netflix from "../public/assets/projects/netflix.jpg";
 import Carshow from "../public/assets/projects/Carshow.jpg";
+import nike from "../public/assets/projects/nike.png";
+import travling from "../public/assets/projects/travling.png";
+import hastabilgi from "../public/assets/projects/hastabilgi.png";
 
 const Projects = () => {
     return (
@@ -13,9 +16,12 @@ const Projects = () => {
             <h2 className="py-4">What I&apos;ve Built</h2>
             <div className="grid md:grid-cols-2 gap-8">
                 <ProjectItem backgroundImg={Givingly} projectUrl="/Givingly"/>
+                <ProjectItem backgroundImg={hastabilgi} projectUrl="/hastabilgi"/>
                 <ProjectItem backgroundImg={Carshow} projectUrl="/Carshow"/>
                 <ProjectItem backgroundImg={Movies} projectUrl="/Movies"/>
                 <ProjectItem backgroundImg={netflix} projectUrl="/Netflix"/>
+                <ProjectItem backgroundImg={nike} projectUrl="/nike"/>
+                <ProjectItem backgroundImg={travling} projectUrl="/travling"/>
                 <ProjectItem backgroundImg={hangman} projectUrl="/hangman"/>
             </div>
         </div>
