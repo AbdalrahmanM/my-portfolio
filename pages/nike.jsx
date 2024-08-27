@@ -24,7 +24,7 @@ const givingly = () => {
                 <div className="col-span-4">
                     <p>Project</p>
                     <h2 className="my-4">Overview</h2>
-                    <p>I created the "Nike Working Version" webpage as a practice project to further enhance my skills in React, Vite, and Tailwind. The project involved designing and developing a responsive and visually appealing interface, simulating a Nike product page. This exercise allowed me to deepen my understanding of modern front-end development techniques, component-based architecture, and styling using Tailwind. The project also helped me refine my workflow with Vite, optimizing development speed and performance.
+                    <p>I created the &quot; Nike Working Version&quot; webpage as a practice project to further enhance my skills in React, Vite, and Tailwind. The project involved designing and developing a responsive and visually appealing interface, simulating a Nike product page. This exercise allowed me to deepen my understanding of modern front-end development techniques, component-based architecture, and styling using Tailwind. The project also helped me refine my workflow with Vite, optimizing development speed and performance.
                     </p>
                     <Link href="https://nike-plum.vercel.app/">
                         <button className="px-8 py-2 mt-4 mr-8">Demo</button>
