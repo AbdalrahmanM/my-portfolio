@@ -11,6 +11,8 @@ import NextJS from "../public/assets/skills/nextjs.png";
 import C from "../public/assets/skills/csharp.png"
 import redux from "../public/assets/skills/redux.png"
 import Git from "../public/assets/skills/Git.png"
+import python from "../public/assets/skills/python.png"
+import mss from "../public/assets/skills/mss.png"
 const Skills = () => {
     return (
         <div id="skills" className="w-full lg:h-screen p-2 section-slide-in">
@@ -127,6 +129,26 @@ const Skills = () => {
                             </div>
                             <div className="flex flex-col items-center justify-center">
                                 <h3 className="uppercase">C#</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
+                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
+                            <div className="m-auto">
+                                <Image src={python} width="64px" height="64px" alt="/" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center">
+                                <h3 className="uppercase">Python</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
+                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
+                            <div className="m-auto">
+                                <Image src={mss} width="64px" height="64px" alt="/" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center">
+                                <h3 className="uppercase">M S S</h3>
                             </div>
                         </div>
                     </div>
