@@ -12,7 +12,7 @@ import C from "../public/assets/skills/csharp.png"
 import redux from "../public/assets/skills/redux.png"
 import Git from "../public/assets/skills/Git.png"
 import python from "../public/assets/skills/python.png"
-import mss from "../public/assets/skills/mss.png"
+import mss from "../public/assets/skills/MSS.png"
 const Skills = () => {
     return (
         <div id="skills" className="w-full lg:h-screen p-2 section-slide-in">
