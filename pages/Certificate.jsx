@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
-import recoded from "@/public/recoded.jpg";
-import responsive from "@/public/responsive.jpg";
-import JS from "@/public/JS.jpg";
-import restApi from "@/public/restApi.png";
-import JSBasic from "@/public/JSBasic.png";
-import JSIntermediate from "@/public/JSIntermediate.png"
-import react from "@/public/react.png"
-import dataScience from "@/public/dataS.png" 
-import turkcellReact from "@/public/turkcellReact.png"
-import network from "@/public/network.png"
+import recoded from "../public/recoded.jpg";
+import responsive from "../public/responsive.jpg";
+import JS from "../public/JS.jpg";
+import restApi from "../public/restApi.png";
+import JSBasic from "../public/JSBasic.png";
+import JSIntermediate from "../public/JSIntermediate.png";
+import react from "../public/react.png";
+import dataScience from "../public/dataS.png"; 
+import turkcellReact from "../public/turkcellReact.png";
+import network from "../public/network.png";
 import Link from "next/link";
 
 const Certificate = () => {
