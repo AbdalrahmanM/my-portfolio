@@ -8,6 +8,7 @@ import Carshow from "../public/assets/projects/Carshow.jpg";
 import nike from "../public/assets/projects/nike.png";
 import travling from "../public/assets/projects/travling.png";
 import hastabilgi from "../public/assets/projects/hastabilgi.png";
+import hospitaltest from "../public/assets/projects/HospitalTest.jpg"
 
 const Projects = () => {
     return (
@@ -16,6 +17,7 @@ const Projects = () => {
             <h2 className="py-4">What I&apos;ve Built</h2>
             <div className="grid md:grid-cols-2 gap-8">
                 <ProjectItem backgroundImg={Givingly} projectUrl="/Givingly"/>
+                <ProjectItem backgroundImg={hospitaltest} projectUrl="/HospitalTest"/>
                 <ProjectItem backgroundImg={hastabilgi} projectUrl="/hastabilgi"/>
                 <ProjectItem backgroundImg={Carshow} projectUrl="/Carshow"/>
                 <ProjectItem backgroundImg={Movies} projectUrl="/Movies"/>
