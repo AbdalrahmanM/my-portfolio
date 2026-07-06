@@ -22,7 +22,7 @@ const About = () => {
                     <p className="hidden py-2 leading-8 text-white/65 md:block">
                         My thesis, <span className="text-white">&quot;Classification of Emotion and Urgency Levels in Social Media Crisis Messages Using Multitasking Transformer Architectures,&quot;</span> explored how transformer-based models can understand emotion and urgency in crisis communication. My expertise lies in the meticulous crafting of mobile-responsive front-end UI applications that seamlessly
                         interact with APIs and backend frameworks. I&apos;m driven by an insatiable hunger for continuous learning, firmly
-                        believing that there are countless pathways to achieving excellence. While I excel in constructing front-end
+                        believing that there are countless pathways to achieving excellence. While I excel in constructing frontend
                         applications using HTML, CSS, JavaScript, and React, my adaptability allows me to swiftly embrace novel technology stacks as demanded by each project.
                     </p>
                     <div className="mt-5 grid gap-3 sm:grid-cols-3 md:mt-8">
