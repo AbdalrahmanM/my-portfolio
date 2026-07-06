@@ -1,229 +1,138 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import {
-  AiOutlineClose,
-  AiOutlineMail,
-  AiOutlineMenu,
-  AiOutlineHome,
-  AiFillFilePdf,
-} from "react-icons/ai";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { BsDiscord } from "react-icons/bs";
-import a from "../public/assets/Logo.png";
-import icon from "../public/icon.png";
-import Certificate from "../public/Certificate.png";
+import { AnimatePresence, motion } from "framer-motion";
+import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { HiOutlineDownload } from "react-icons/hi";
+
+const navItems = [
+  { href: "/#home", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#project", label: "Projects" },
+  { href: "/Certificate", label: "Certificates" },
+  { href: "/#contact", label: "Contact" },
+];
 
 export const Navbar = () => {
-  const [shadow, setShadow] = useState(false);
-  const [nav, setNav] = useState(false);
-  const [navBg, setNavBg] = useState("#ecf0f3");
-  const [linkColor, setLinkColor] = useState("#1f2937");
-  const router = useRouter();
-  const [showContent, setShowContent] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setShowContent(true);
-    }, 600);
-  }, []);
-
-  useEffect(() => {
-    if (
-      router.asPath === "/Givingly" ||
-      router.asPath === "/Movies" ||
-      router.asPath === "/hangman"
-    ) {
-      setNavBg("transparent");
-      setLinkColor("#ecf0f3");
-    } else {
-      setNavBg("#ecf0f3");
-      setLinkColor("#1f2937");
-    }
-  }, [router]);
-  const handleNav = () => {
-    setNav(!nav);
-  };
-
-  useEffect(() => {
-    const handleShadow = () => {
-      if (window.scrollY >= 90) {
-        setShadow(true);
-      } else {
-        setShadow(false);
-      }
-    };
-    window.addEventListener("scroll", handleShadow);
-  }, []);
   return (
-    <div
-      className={`fixed h-full pt-2 ${
-        nav ? "w-64" : "w-[4.3rem]"
-      } bg-[#ecf0f3] z-[100] transition-all duration-700`}
-    >
-      <div
-        className={`flex items-center justify-between h-20 px-4 ${
-          nav ? "w-full" : "w-20"
-        }`}
+    <>
+      <motion.header
+        className="fixed left-0 right-0 top-4 z-[100] px-4"
+        initial={{ opacity: 0, y: -24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        {nav && (
-          <Link href="/#home">
-            <Image
-              src={a}
-              className={`${showContent ? "fade-in" : "hidden"}`}
-              width="125"
-              height="50"
-              alt=""
-            />
+        <div className="mx-auto flex max-w-[1180px] items-center justify-between rounded-full border border-white/10 bg-[#071310]/70 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+          <Link href="/#home" className="group flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#5ee7bd] text-sm font-black text-[#071310] transition group-hover:rotate-6">
+              AM
+            </span>
+            <span className="hidden text-sm font-bold uppercase tracking-[0.22em] text-white sm:block">
+              Abdulrahman
+            </span>
           </Link>
-        )}
-        <div>
-          {nav ? (
-            <div
-              onClick={handleNav}
-              className={`${
-                showContent ? "fade-in" : "hidden"
-              } hover:rotate-[360deg] rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 `}
-            >
-              <AiOutlineClose
-                size={25}
-                className={`${showContent ? "fade-in" : "hidden"}`}
-              />
-            </div>
-          ) : (
-            <div
-              onClick={handleNav}
-              className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 hover:rotate-[360deg]"
-            >
-              <AiOutlineMenu size={25} />
-            </div>
-          )}
-        </div>
-      </div>
-      {!nav && (
-        <div
-          className={`flex items-center justify-between h-20 px-4 ${
-            nav ? "w-full" : "w-20"
-          }`}
-        >
-          <Link href="/#home">
-            <div
-              className={`rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 hover:rotate-[360deg]`}
-            >
-              <AiOutlineHome size={25} />
-            </div>
-          </Link>
-        </div>
-      )}
-      {!nav && (
-        <div
-          className={`flex items-center justify-between h-20 px-4 ${
-            nav ? "w-full" : "w-20"
-          }`}
-        >
-          <a href="/cv.pdf" title="Download CV" download>
-            <div
-              className={`rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 hover:rotate-[360deg]`}
-            >
-              <Image src={icon} size={25} />
-            </div>
-          </a>
-        </div>
-      )}
-      {!nav && (
-        <div
-          className={`flex items-center justify-between h-20 px-4 ${
-            nav ? "w-full" : "w-20"
-          }`}
-        >
-          <Link href="/Certificate" title="My Certificate">
-            <div
-              className={`rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer duration-500 hover:rotate-[360deg]`}
-            >
-              <Image src={Certificate} size={25} />
-            </div>
-          </Link>
-        </div>
-      )}
-      {nav && (
-        <div className={`p-4 ${showContent ? "fade-in" : "hidden"}`}>
-          <ul style={{ color: `${linkColor}` }} className="uppercase">
-            <div className="flex flex-col text-gray-700 font-bold">
-              <div>
-                <Link href="/#home">
-                  <li onClick={handleNav} className="py-2 text-sm">
-                    Home
-                  </li>
-                </Link>
-              </div>
-              <div>
-                <Link href="/#about">
-                  <li onClick={handleNav} className="py-2 text-sm">
-                    About
-                  </li>
-                </Link>
-              </div>
-              <div>
-                <Link href="/#skills">
-                  <li onClick={handleNav} className="py-2 text-sm">
-                    Skills
-                  </li>
-                </Link>
-              </div>
-              <div>
-                <Link href="/#project">
-                  <li onClick={handleNav} className="py-2 text-sm">
-                    Projects
-                  </li>
-                </Link>
-              </div>
-              <div>
-                <Link href="/Certificate">
-                  <li onClick={handleNav} className="py-2 text-sm">
-                  Certificates
-                  </li>
-                </Link>
-              </div>
-              <div>
-                <Link href="/#contact">
-                  <li onClick={handleNav} className="py-2 text-sm">
-                    Contact
-                  </li>
-                </Link>
-              </div>
-            </div>
-          </ul>
-          <div className="pt-40">
-            <p className="uppercase font-bold tracking-widest text-[#5651e5]">
-              Let&apos;s Connect
-            </p>
-            <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-              <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
-                <Link href="https://www.linkedin.com/in/abdulrahman-alsamaraie/">
-                  <FaLinkedinIn />
-                </Link>
-              </div>
-              <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
-                <Link href="https://github.com/AbdalrahmanM">
-                  <FaGithub />
-                </Link>
-              </div>
-              <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
-                <Link href="mailto:abdodj18@email.com">
-                  <AiOutlineMail />
-                </Link>
-              </div>
-              <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 hover:rotate-[360deg]">
-                <Link href="https://discord.com/channels/abdulrahman94M#0731">
-                  <BsDiscord />
-                </Link>
-              </div>
-            </div>
+
+          <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.05] p-1 lg:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="rounded-full px-4 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/10 hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden items-center gap-2 lg:flex">
+            <Link href="https://www.linkedin.com/in/abdulrahman-alsamaraie/" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/75 transition hover:border-[#5ee7bd] hover:text-[#5ee7bd]">
+              <FaLinkedinIn />
+            </Link>
+            <Link href="https://github.com/AbdalrahmanM" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/75 transition hover:border-[#5ee7bd] hover:text-[#5ee7bd]">
+              <FaGithub />
+            </Link>
+            <a href="/cv.pdf" download className="primary-link py-2">
+              CV
+            </a>
           </div>
+
+          <button
+            onClick={() => setOpen(true)}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white shadow-none lg:hidden"
+            aria-label="Open navigation"
+          >
+            <AiOutlineMenu size={22} />
+          </button>
         </div>
-      )}
-    </div>
+      </motion.header>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed inset-0 z-[200] bg-black/55 backdrop-blur-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpen(false)}
+          >
+            <motion.aside
+              className="ml-auto h-full w-full max-w-sm border-l border-white/10 bg-[#071310] p-6"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold uppercase tracking-[0.26em] text-white">
+                  Menu
+                </span>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white shadow-none"
+                  aria-label="Close navigation"
+                >
+                  <AiOutlineClose size={22} />
+                </button>
+              </div>
+
+              <nav className="mt-10 grid gap-3">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.04 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 text-xl font-bold text-white transition hover:border-[#5ee7bd] hover:text-[#5ee7bd]"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              <div className="mt-10 flex gap-3">
+                <Link href="mailto:abdodj18@gmail.com" className="secondary-link">
+                  <AiOutlineMail className="mr-2" />
+                  Email
+                </Link>
+                <a href="/cv.pdf" download className="primary-link">
+                  <HiOutlineDownload className="mr-2" />
+                  CV
+                </a>
+              </div>
+            </motion.aside>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };

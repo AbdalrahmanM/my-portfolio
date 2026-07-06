@@ -7,7 +7,7 @@ import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div className='ml-14 pl-[1.5rem] pr-[0.5rem] '>
+    <div className='pt-16'>
       <Head>
         <title>ABDULRAHMAN MUDHER</title>
       </Head>

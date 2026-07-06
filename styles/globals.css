@@ -4,10 +4,11 @@
 
 html{
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 @layer base{
   body{
-    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide
+    @apply bg-[#071310] text-[#edf7f3] tracking-wide
   }
   h1, h2, h3, h4, h5, h6{
     @apply font-bold
@@ -26,7 +27,79 @@ html{
   }
 
   button{
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white
+    @apply rounded-xl uppercase bg-[#42d6a4] text-[#071310]
+  }
+}
+
+body {
+  min-height: 100vh;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(94, 231, 189, 0.45) transparent;
+}
+
+.overflow-x-auto {
+  scrollbar-width: none;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: #5ee7bd;
+  color: #071310;
+}
+
+.section-kicker {
+  @apply text-sm font-bold uppercase tracking-[0.32em] text-[#5ee7bd];
+}
+
+.soft-panel {
+  @apply rounded-[1.6rem] border border-white/10 bg-white/[0.07] shadow-[0_24px_90px_rgba(0,0,0,0.28)] backdrop-blur-xl;
+}
+
+.primary-link {
+  @apply inline-flex items-center justify-center rounded-full bg-[#5ee7bd] px-5 py-3 text-sm font-bold uppercase tracking-wider text-[#071310] transition duration-300 hover:-translate-y-1 hover:bg-white;
+}
+
+.secondary-link {
+  @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition duration-300 hover:-translate-y-1 hover:border-[#5ee7bd] hover:text-[#5ee7bd];
+}
+
+.glass-card {
+  @apply relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.065] shadow-[0_24px_90px_rgba(0,0,0,0.28)] backdrop-blur-xl;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.16), transparent 32%, rgba(94,231,189,.12));
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-white via-[#dffcf3] to-[#5ee7bd] bg-clip-text text-transparent;
+}
+
+.marquee-track {
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -50,9 +123,7 @@ html{
 }
 
 .section-slide-in {
-  opacity: 0;
-  animation: slideInFromLeft 2s ease forwards;
-  transition: opacity 1.5s;
+  opacity: 1;
 }
 
 @keyframes slideInFromLeft {
