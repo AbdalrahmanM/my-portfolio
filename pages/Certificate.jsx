@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import SectionSignal from "@/components/SectionSignal";
+import SwipeHint from "@/components/SwipeHint";
 import recoded from "../public/recoded.jpg";
 import responsive from "../public/responsive.jpg";
 import JS from "../public/JS.jpg";
@@ -83,12 +86,14 @@ const certificates = [
   },
 ];
 
+const accents = ["#7dd3fc", "#72f2c1", "#ffd166", "#ff8f70"];
+
 const Certificate = () => {
   return (
     <main className="min-h-screen px-4 py-16 pt-28 md:py-28 md:pt-32">
       <div className="mx-auto max-w-[1240px]">
         <Reveal>
-          <p className="section-kicker">Certificates</p>
+          <SectionSignal index="05" label="Credentials / Verified Learning" accent="sky" />
           <div className="mt-4 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <h1 className="text-4xl leading-tight text-gradient md:text-7xl">
@@ -106,32 +111,46 @@ const Certificate = () => {
           </div>
         </Reveal>
 
-        <div className="mt-8 flex snap-x gap-4 overflow-x-auto pb-4 md:mt-12 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0">
+        <SwipeHint accent="#7dd3fc" />
+        <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-12 md:grid md:touch-auto md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0">
           {certificates.map((certificate, index) => (
-            <Reveal key={`${certificate.issuer}-${certificate.title}`} delay={Math.min(index * 0.035, 0.22)} hover className="min-w-[84vw] snap-center md:min-w-0">
+            <motion.div
+              key={`${certificate.issuer}-${certificate.title}`}
+              className={`w-full min-w-full shrink-0 snap-start md:min-w-0 md:snap-none ${index === 0 ? "md:col-span-2" : ""}`}
+              initial={{ opacity: 0, y: 70, rotate: index % 2 === 0 ? -1.5 : 1.5 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              viewport={{ once: false, amount: 0.28 }}
+              transition={{ duration: 0.8, delay: Math.min(index * 0.04, 0.2), ease: [0.16, 1, 0.3, 1] }}
+            >
               <Link href={certificate.href} className="group block h-full">
-                <article className="glass-card h-full p-3 transition duration-300">
+                <motion.article className="glass-card h-full p-3" whileHover={{ y: -8 }}>
+                  <div className="pointer-events-none absolute inset-0 opacity-30" style={{ background: `radial-gradient(circle at 90% 10%, ${accents[index % accents.length]}45, transparent 34%)` }} />
                   <div className="overflow-hidden rounded-xl bg-white/[0.04]">
                     <Image
                       src={certificate.image}
                       alt={`${certificate.title} certificate`}
-                      className="aspect-[16/11] w-full object-contain transition duration-500 group-hover:scale-[1.02]"
+                      className={`${index === 0 ? "md:aspect-[21/9]" : ""} aspect-[16/11] w-full object-contain transition duration-700 group-hover:scale-[1.025]`}
                     />
                   </div>
-                  <div className="flex items-center justify-between gap-4 p-3 md:p-4">
+                  <div className="relative z-10 flex items-center justify-between gap-4 p-3 md:p-4">
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#5ee7bd]">
+                      <p className="text-xs font-bold uppercase tracking-[0.24em]" style={{ color: accents[index % accents.length] }}>
                         {certificate.issuer}
                       </p>
-                      <h2 className="mt-2 text-lg text-white md:text-xl">{certificate.title}</h2>
+                      <h2 className={`${index === 0 ? "md:text-3xl" : "md:text-xl"} mt-2 text-lg text-white`}>{certificate.title}</h2>
                     </div>
-                    <span className="rounded-full bg-[#5ee7bd] px-4 py-2 text-sm font-bold text-[#071310]">
-                      View
-                    </span>
+                    <motion.span
+                      className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-sm font-black text-[#060d0c]"
+                      style={{ backgroundColor: accents[index % accents.length], borderColor: accents[index % accents.length] }}
+                      whileHover={{ rotate: 12, scale: 1.08 }}
+                    >
+                      ✓
+                      <motion.span className="absolute -inset-1 rounded-full border border-dashed" style={{ borderColor: `${accents[index % accents.length]}85` }} animate={{ rotate: 360 }} transition={{ duration: 12, repeat: Infinity, ease: "linear" }} />
+                    </motion.span>
                   </div>
-                </article>
+                </motion.article>
               </Link>
-            </Reveal>
+              </motion.div>
           ))}
         </div>
       </div>

@@ -5,10 +5,12 @@
 html{
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 @layer base{
   body{
-    @apply bg-[#071310] text-[#edf7f3] tracking-wide
+    @apply bg-[#060d0c] text-[#f4fbf8] tracking-wide
   }
   h1, h2, h3, h4, h5, h6{
     @apply font-bold
@@ -33,6 +35,14 @@ html{
 
 body {
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#__next {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 * {
@@ -49,8 +59,8 @@ body {
 }
 
 ::selection {
-  background: #5ee7bd;
-  color: #071310;
+  background: #72f2c1;
+  color: #060d0c;
 }
 
 .section-kicker {
@@ -62,11 +72,11 @@ body {
 }
 
 .primary-link {
-  @apply inline-flex items-center justify-center rounded-full bg-[#5ee7bd] px-5 py-3 text-sm font-bold uppercase tracking-wider text-[#071310] transition duration-300 hover:-translate-y-1 hover:bg-white;
+  @apply inline-flex items-center justify-center rounded-full bg-[#72f2c1] px-5 py-3 text-sm font-bold uppercase tracking-wider text-[#060d0c] transition duration-300 hover:-translate-y-1 hover:bg-[#ffd166];
 }
 
 .secondary-link {
-  @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition duration-300 hover:-translate-y-1 hover:border-[#5ee7bd] hover:text-[#5ee7bd];
+  @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition duration-300 hover:-translate-y-1 hover:border-[#7dd3fc] hover:text-[#7dd3fc];
 }
 
 .glass-card {
@@ -77,6 +87,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: linear-gradient(135deg, rgba(255,255,255,.16), transparent 32%, rgba(94,231,189,.12));
   opacity: 0;
   transition: opacity .35s ease;
@@ -87,7 +98,22 @@ body {
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-white via-[#dffcf3] to-[#5ee7bd] bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-white via-[#dffcf3] to-[#7dd3fc] bg-clip-text text-transparent;
+}
+
+.signal-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 .marquee-track {

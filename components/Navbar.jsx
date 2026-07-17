@@ -26,9 +26,9 @@ export const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="mx-auto flex max-w-[1180px] items-center justify-between rounded-full border border-white/10 bg-[#071310]/70 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-[1180px] items-center justify-between rounded-full border border-white/10 bg-[#060d0c]/75 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,0.35)] backdrop-blur-xl">
           <Link href="/#home" className="group flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#5ee7bd] text-sm font-black text-[#071310] transition group-hover:rotate-6">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#72f2c1] via-[#7dd3fc] to-[#ffd166] text-sm font-black text-[#060d0c] transition group-hover:rotate-6">
               AM
             </span>
             <span className="hidden text-sm font-bold uppercase tracking-[0.22em] text-white sm:block">
@@ -80,7 +80,7 @@ export const Navbar = () => {
             onClick={() => setOpen(false)}
           >
             <motion.aside
-              className="ml-auto h-full w-full max-w-sm border-l border-white/10 bg-[#071310] p-6"
+              className="ml-auto h-full w-full max-w-sm border-l border-white/10 bg-[#060d0c] p-6"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}

@@ -2,21 +2,21 @@ import { motion } from "framer-motion";
 
 const AnimatedBackground = () => {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#071310]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(36,180,140,0.22),transparent_30%),radial-gradient(circle_at_80%_0%,rgba(234,179,8,0.12),transparent_28%),linear-gradient(135deg,#071310_0%,#0d1f1b_48%,#08110f_100%)]" />
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#060d0c]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_14%,rgba(114,242,193,0.18),transparent_27%),radial-gradient(circle_at_86%_16%,rgba(255,143,112,0.12),transparent_24%),radial-gradient(circle_at_56%_92%,rgba(125,211,252,0.10),transparent_30%),linear-gradient(135deg,#060d0c_0%,#0b1714_48%,#080d0c_100%)]" />
       <motion.div
-        className="absolute left-[-12rem] top-[-10rem] h-[34rem] w-[34rem] rounded-full bg-[#2dd4a3]/20 blur-3xl"
-        animate={{ x: [0, 90, 20, 0], y: [0, 60, 120, 0], scale: [1, 1.15, 0.95, 1] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -left-[25%] top-[8%] h-40 w-[90%] -rotate-12 bg-gradient-to-r from-transparent via-[#72f2c1]/10 to-transparent blur-2xl"
+        animate={{ x: ["-8%", "35%", "-8%"], opacity: [0.35, 0.8, 0.35] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-14rem] right-[-10rem] h-[36rem] w-[36rem] rounded-full bg-[#facc15]/10 blur-3xl"
-        animate={{ x: [0, -80, -120, 0], y: [0, -60, -20, 0], scale: [1, 0.92, 1.12, 1] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -right-[30%] bottom-[12%] h-48 w-[95%] rotate-12 bg-gradient-to-r from-transparent via-[#ff8f70]/10 to-[#7dd3fc]/10 blur-3xl"
+        animate={{ x: ["12%", "-28%", "12%"], opacity: [0.3, 0.72, 0.3] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="signal-grid absolute inset-0 opacity-60" />
       <motion.div
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#5ee7bd] to-transparent"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#72f2c1] to-transparent"
         animate={{ opacity: [0.2, 0.85, 0.2], x: ["-30%", "30%", "-30%"] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
