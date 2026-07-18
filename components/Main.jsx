@@ -1,177 +1,163 @@
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn, FaReact } from "react-icons/fa";
-import { SiNextdotjs, SiAmazonaws } from "react-icons/si";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineArrowDown, HiOutlineArrowUpRight } from "react-icons/hi2";
-import profile from "../public/assets/ABdulrahman.png";
-import SectionSignal from "./SectionSignal";
+import portrait from "../public/assets/abdo1.jpg";
 
-const floatingCards = [
-  { label: "React UI", value: "Interfaces", icon: FaReact, accent: "#72f2c1", className: "left-0 top-12" },
-  { label: "Next.js", value: "Apps", icon: SiNextdotjs, accent: "#7dd3fc", className: "right-0 top-28" },
-  { label: "AWS AI", value: "Certified", icon: SiAmazonaws, accent: "#ffd166", className: "-left-8 bottom-32" },
+const socialLinks = [
+  { label: "LinkedIn", icon: FaLinkedinIn, href: "https://www.linkedin.com/in/abdulrahman-alsamaraie/" },
+  { label: "GitHub", icon: FaGithub, href: "https://github.com/AbdalrahmanM" },
+  { label: "Email", icon: AiOutlineMail, href: "mailto:abdodj18@gmail.com" },
 ];
 
-const roles = ["AI-Aware Front-End Developer", "React Builder", "UI Motion Lover", "Product Thinker"];
+const signals = [
+  { index: "01", label: "M.Sc. research", value: "AI and crisis intelligence" },
+  { index: "02", label: "Credential", value: "AWS AI Practitioner" },
+  { index: "03", label: "Core craft", value: "React product interfaces" },
+];
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.28 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.68, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 export const Main = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setRoleIndex((current) => (current + 1) % roles.length);
-    }, 2600);
-
-    return () => window.clearInterval(interval);
-  }, []);
+  const reducedMotion = useReducedMotion();
 
   return (
-    <section id="home" className="relative overflow-hidden px-4 pt-6 sm:pt-12 md:min-h-screen md:pt-20">
-      <div className="mx-auto grid max-w-[1240px] items-center gap-8 py-6 sm:py-10 md:min-h-screen md:gap-14 md:py-20 lg:grid-cols-[1.08fr_0.92fr]">
+    <section id="home" className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-white/10">
+      <motion.div
+        className="absolute inset-0"
+        initial={reducedMotion ? false : { scale: 1.12, filter: "grayscale(1)" }}
+        animate={{ scale: 1, filter: "grayscale(0.18)" }}
+        transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <Image
+          src={portrait}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          aria-hidden="true"
+          className="hidden scale-110 object-cover opacity-25 blur-2xl lg:block"
+        />
+        <Image
+          src={portrait}
+          alt="Abdulrahman Mudher"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[42%_center] sm:object-[38%_center] lg:object-contain lg:object-left"
+        />
+      </motion.div>
+
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,11,0.12)_0%,rgba(9,9,11,0.5)_45%,#09090b_100%)] lg:bg-[linear-gradient(90deg,rgba(9,9,11,0.08)_0%,rgba(9,9,11,0.24)_36%,rgba(9,9,11,0.91)_65%,#09090b_100%)]" />
+      <div className="signal-grid absolute inset-0 opacity-20 mix-blend-screen" />
+
+      {!reducedMotion && (
+        <>
+          <motion.div
+            className="absolute inset-y-0 left-1/3 hidden w-px bg-blue-400/40 lg:block"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          />
+          <motion.div
+            className="absolute inset-x-0 top-[28%] h-px bg-gradient-to-r from-transparent via-blue-400/35 to-transparent"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          />
+        </>
+      )}
+
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-4rem)] max-w-[1240px] flex-col justify-end px-4 pb-5 pt-28 sm:px-6 sm:pb-7 lg:items-end lg:justify-center lg:px-8 lg:pb-32 lg:pt-36">
         <motion.div
-          className="text-center sm:text-left"
-          initial={{ opacity: 0, y: 34 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full text-center lg:max-w-[620px] lg:text-left"
+          variants={container}
+          initial="hidden"
+          animate="visible"
         >
-          <div className="mx-auto mb-5 inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs text-white/75 backdrop-blur-xl sm:mx-0 sm:justify-start sm:text-sm md:mb-7">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#5ee7bd] opacity-70" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#5ee7bd]" />
+          <motion.div variants={item} className="mb-4 inline-flex items-center gap-3 rounded-md border border-blue-400/30 bg-[#09090b]/70 px-3 py-2 backdrop-blur-xl">
+            <span className="h-2 w-2 bg-blue-400 shadow-[0_0_18px_rgba(96,165,250,0.9)]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-100 sm:text-xs">
+              Frontend engineer and AI researcher
             </span>
-            Frontend developer with AI research background
-          </div>
+          </motion.div>
 
-          <SectionSignal index="00" label="Abdulrahman / Portfolio" accent="mint" className="justify-center sm:justify-start" />
-          <h1 className="mx-auto mt-4 max-w-5xl text-4xl font-black leading-[0.95] text-gradient sm:mx-0 sm:text-6xl lg:text-7xl 2xl:text-8xl">
-            Websites that move, feel, and convert.
-          </h1>
+          <motion.p variants={item} className="eyebrow mb-3">Portfolio / 2026</motion.p>
+          <motion.h1 variants={item} className="text-[clamp(2.65rem,11vw,4.75rem)] font-black leading-[0.9] text-white">
+            Abdulrahman
+            <span className="block text-gradient">Mudher.</span>
+          </motion.h1>
+          <motion.p variants={item} className="mx-auto mt-4 max-w-xl text-sm font-medium leading-6 text-zinc-200 sm:text-base sm:leading-7 lg:mx-0 lg:text-lg">
+            I create precise, responsive digital products where expressive motion,
+            clear systems, and AI-informed thinking work together.
+          </motion.p>
 
-          <div className="relative mt-4 h-8 overflow-hidden font-bold text-[#72f2c1] sm:h-10 md:mt-6">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={roles[roleIndex]}
-                className="absolute inset-0 whitespace-nowrap text-[clamp(1rem,4.7vw,1.875rem)]"
-                initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -18, filter: "blur(8px)" }}
-                transition={{ duration: 0.48, ease: [0.16, 1, 0.3, 1] }}
+          <motion.div variants={item} className="mt-6 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+            <Link href="/#project" className="primary-link gap-2 text-[11px] sm:text-sm">
+              Explore work <HiOutlineArrowUpRight size={18} />
+            </Link>
+            <Link href="/Certificate" className="secondary-link text-[11px] sm:text-sm">
+              Certificates
+            </Link>
+          </motion.div>
+
+          <motion.div variants={item} className="mt-4 flex items-center justify-center gap-2 lg:justify-start">
+            {socialLinks.map(({ label, icon: Icon, href }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                title={label}
+                className="flex h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-[#09090b]/65 text-zinc-200 backdrop-blur-lg transition duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:text-blue-300"
               >
-                {roles[roleIndex]}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/68 sm:mx-0 md:mt-7 md:text-lg md:leading-8">
-            I design and build responsive React experiences with clean systems,
-            smooth motion, and an AI research background that helps me think
-            deeply about language, urgency, and human-centered digital products.
-          </p>
-
-          <div className="mt-7 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3 md:mt-9 md:gap-4">
-            <Link href="/#project" className="primary-link gap-2 whitespace-nowrap !px-3 !text-[10px] !tracking-[0.1em] sm:!px-5 sm:!text-sm sm:!tracking-wider">
-              Explore Work
-              <HiOutlineArrowUpRight size={18} />
-            </Link>
-            <Link href="/Certificate" className="secondary-link whitespace-nowrap !px-3 !text-[10px] !tracking-[0.1em] sm:!px-5 sm:!text-sm sm:!tracking-wider">
-              View Certificates
-            </Link>
-          </div>
-
-          <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-7 sm:flex sm:flex-wrap sm:items-center sm:gap-3 md:mt-10 md:gap-4">
-            {[
-              ["LinkedIn", FaLinkedinIn, "https://www.linkedin.com/in/abdulrahman-alsamaraie/"],
-              ["GitHub", FaGithub, "https://github.com/AbdalrahmanM"],
-              ["Email", AiOutlineMail, "mailto:abdodj18@gmail.com"],
-            ].map(([label, Icon, href]) => (
-              <Link key={label} href={href} className="group flex min-w-0 flex-col items-center justify-center gap-1.5 rounded-2xl border border-white/10 bg-white/[0.04] px-2 py-2.5 text-[9px] font-bold uppercase tracking-[0.12em] text-white/55 transition hover:border-[#5ee7bd] hover:text-[#5ee7bd] sm:flex-row sm:justify-start sm:gap-2 sm:rounded-none sm:border-0 sm:bg-transparent sm:px-0 sm:py-0 sm:text-sm sm:tracking-[0.18em] md:gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] transition group-hover:-translate-y-1 group-hover:border-[#5ee7bd] sm:h-10 sm:w-10 md:h-11 md:w-11">
-                  <Icon />
-                </span>
-                {label}
+                <Icon />
               </Link>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
-          className="relative mx-auto hidden w-full max-w-[440px] sm:block lg:max-w-[520px]"
-          initial={{ opacity: 0, scale: 0.94, rotate: -1 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-5 grid w-full grid-cols-3 gap-1.5 lg:absolute lg:bottom-6 lg:left-8 lg:right-8 lg:mt-0 lg:w-auto lg:gap-2"
+          initial="hidden"
+          animate="visible"
+          variants={{ visible: { transition: { staggerChildren: 0.08, delayChildren: 0.78 } } }}
         >
-          <motion.div
-            className="absolute inset-8 rounded-[2.4rem] border border-[#5ee7bd]/25"
-            animate={{ rotate: [0, 6, -4, 0], scale: [1, 1.02, 0.98, 1] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute inset-14 rounded-[2rem] border border-[#ff8f70]/20"
-            animate={{ rotate: [0, -5, 4, 0], scale: [1, 0.98, 1.015, 1] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.span
-            className="absolute -right-5 -top-12 hidden text-[8rem] font-black leading-none text-[#ffd166]/10 lg:block"
-            animate={{ y: [0, -12, 0], opacity: [0.08, 0.16, 0.08] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            00
-          </motion.span>
-          <div className="glass-card p-4">
-            <div className="relative overflow-hidden rounded-[1.25rem]">
-              <Image
-                src={profile}
-                alt="Abdulrahman Mudher"
-                className="aspect-[5/4] w-full object-cover object-top saturate-[1.05] md:aspect-[4/5]"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071310] via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3 md:bottom-5 md:left-5 md:right-5">
-                <div className="rounded-2xl border border-white/10 bg-[#071310]/65 p-3 backdrop-blur-xl md:p-4">
-                  <p className="text-xs uppercase tracking-[0.24em] text-[#7dd3fc] md:text-sm">Current stack</p>
-                  <div className="mt-2 flex flex-wrap gap-2 md:mt-3">
-                    {["React", "Next.js", "Tailwind", "Framer"].map((item) => (
-                      <span key={item} className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 md:text-sm">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+          {signals.map((signal) => (
+            <motion.div
+              key={signal.index}
+              variants={item}
+              className="min-w-0 rounded-lg border border-white/10 bg-[#09090b]/75 p-2.5 backdrop-blur-xl sm:p-4 lg:flex lg:items-center lg:gap-4"
+            >
+              <span className="text-[10px] font-black text-blue-400 sm:text-xs">{signal.index}</span>
+              <div className="mt-1 min-w-0 lg:mt-0">
+                <p className="truncate text-[8px] font-bold uppercase tracking-[0.11em] text-zinc-500 sm:text-[10px] sm:tracking-[0.16em]">{signal.label}</p>
+                <p className="mt-0.5 text-[10px] font-bold leading-4 text-zinc-100 sm:text-sm">{signal.value}</p>
               </div>
-            </div>
-          </div>
-
-          {floatingCards.map((card, index) => {
-            const Icon = card.icon;
-            return (
-              <motion.div
-                key={card.label}
-                className={`absolute z-20 hidden min-w-[168px] rounded-2xl border border-white/10 bg-[#071310]/95 p-4 text-white shadow-[0_20px_70px_rgba(0,0,0,0.48)] backdrop-blur-xl sm:block ${card.className}`}
-                initial={{ opacity: 0, scale: 0.86, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: [0, -14, 0] }}
-                whileHover={{ scale: 1.06, rotate: index % 2 === 0 ? -2 : 2 }}
-                transition={{ duration: 4 + index, repeat: Infinity, delay: index * 0.4, ease: "easeInOut" }}
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full text-[#060d0c]" style={{ backgroundColor: card.accent }}>
-                    <Icon size={22} />
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.22em]" style={{ color: card.accent }}>{card.label}</p>
-                    <p className="font-bold">{card.value}</p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+            </motion.div>
+          ))}
         </motion.div>
       </div>
 
-      <Link href="/#about" className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-white/45 transition hover:text-[#5ee7bd] md:flex">
-        Scroll
+      <Link
+        href="/#about"
+        aria-label="Scroll to about section"
+        className="absolute bottom-28 left-5 z-20 hidden h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-black/30 text-white backdrop-blur-lg transition hover:border-blue-400 hover:text-blue-300 lg:flex"
+      >
         <HiOutlineArrowDown className="animate-bounce" />
       </Link>
     </section>

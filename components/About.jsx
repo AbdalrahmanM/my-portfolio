@@ -1,50 +1,89 @@
-import React from "react"
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Reveal from "./Reveal";
 import AnimatedHeading from "./AnimatedHeading";
 import MosaicPortrait from "./MosaicPortrait";
 import SectionSignal from "./SectionSignal";
 
-const About = () => {
-    return (
-        <section id="about" className="w-full overflow-x-hidden py-16 md:py-28 section-slide-in">
-            <div className="m-auto grid w-full max-w-[1240px] items-center gap-8 px-4 lg:grid-cols-[1.3fr_0.7fr]">
-                <Reveal className="glass-card mx-auto w-full max-w-full justify-self-center p-5 md:p-10">
-                    <SectionSignal index="01" label="About / Identity" accent="mint" />
-                    <AnimatedHeading className="py-4 text-3xl text-white md:text-5xl">Design-minded developer with AI research depth.</AnimatedHeading>
-                    <p className="py-2 text-base font-semibold text-[#72f2c1] md:text-lg">I build interfaces with taste, patience, curiosity, and a master&apos;s-level AI foundation.</p>
-                    <p className="py-2 text-sm leading-7 text-white/65 md:text-base md:leading-8">
-                        I&apos;m <span className="text-[#72f2c1]">Abdulrahman Mudher</span> a passionate creator in the realm of web development.
-                        My journey began during my time as a Computer Engineering student at Mosul University,
-                        where I embarked on a transformative exploration of coding and design. This quest continued at
-                        Sakarya University, where I completed my master&apos;s degree with research focused on AI. Since 2012, I&apos;ve been on an exciting path of crafting visually captivating
-                        and functionally robust websites.
-                    </p>
-                    <p className="hidden py-2 leading-8 text-white/65 md:block">
-                        My thesis, <span className="text-white">&quot;Classification of Emotion and Urgency Levels in Social Media Crisis Messages Using Multitasking Transformer Architectures,&quot;</span> explored how transformer-based models can understand emotion and urgency in crisis communication. My expertise lies in the meticulous crafting of mobile-responsive front-end UI applications that seamlessly
-                        interact with APIs and backend frameworks. I&apos;m driven by an insatiable hunger for continuous learning, firmly
-                        believing that there are countless pathways to achieving excellence. While I excel in constructing frontend
-                        applications using HTML, CSS, JavaScript, and React, my adaptability allows me to swiftly embrace novel technology stacks as demanded by each project.
-                    </p>
-                    <div className="mt-5 grid gap-3 sm:grid-cols-3 md:mt-8">
-                        {[["Responsive UI", "#72f2c1"], ["AI Research", "#7dd3fc"], ["Smooth Motion", "#ffd166"]].map(([item, accent]) => (
-                            <motion.div key={item} className="rounded-2xl border bg-white/[0.06] p-4" style={{ borderColor: `${accent}30` }} whileHover={{ y: -6, borderColor: accent }}>
-                                <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/45">Focus</p>
-                                <p className="mt-2 font-bold" style={{ color: accent }}>{item}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                    <Link href="https://github.com/AbdalrahmanM?tab=repositories">
-                        <p className="mt-5 inline-block cursor-pointer font-bold text-[#72f2c1] underline underline-offset-4 md:mt-8">
-                            Check out some of my latest projects.
-                        </p>
-                    </Link>
-                </Reveal>
-                <MosaicPortrait />
-            </div>
-        </section>
-    )
-}
+const focusAreas = [
+  { number: "01", label: "Interface systems", detail: "Responsive React products" },
+  { number: "02", label: "Applied AI", detail: "Language, emotion, urgency" },
+  { number: "03", label: "Motion craft", detail: "Purposeful interaction" },
+];
 
-export default About
+const About = () => (
+  <section id="about" className="w-full overflow-hidden py-16 md:py-28">
+    <div className="mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8">
+      <Reveal>
+        <SectionSignal index="01" label="About / Identity" />
+      </Reveal>
+
+      <div className="grid gap-3 lg:grid-cols-12 lg:gap-4">
+        <Reveal className="bento-card p-5 sm:p-7 lg:col-span-7 lg:p-10">
+          <p className="eyebrow">Engineer, researcher, visual thinker</p>
+          <AnimatedHeading className="mt-4 max-w-2xl text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
+            Design instinct backed by engineering and AI research.
+          </AnimatedHeading>
+          <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-blue-300 md:text-lg">
+            I build interfaces with clarity, curiosity, and a master&apos;s-level AI foundation.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base md:leading-8">
+            I&apos;m Abdulrahman Mudher, a frontend engineer shaped by Computer
+            Engineering at Mosul University and graduate AI research at Sakarya
+            University. I turn complex ideas into responsive products that feel
+            direct, useful, and carefully made.
+          </p>
+          <Link href="https://github.com/AbdalrahmanM?tab=repositories" className="secondary-link mt-7 w-fit gap-2">
+            Explore my code <HiOutlineArrowUpRight size={18} />
+          </Link>
+          <div className="pointer-events-none absolute -bottom-8 -right-3 text-[9rem] font-black leading-none text-white/[0.025] md:text-[13rem]">AM</div>
+        </Reveal>
+
+        <Reveal delay={0.08} className="bento-card min-h-[430px] p-3 sm:p-5 lg:col-span-5 lg:row-span-2">
+          <MosaicPortrait />
+        </Reveal>
+
+        <Reveal delay={0.1} className="bento-card p-5 sm:p-7 lg:col-span-7">
+          <div className="flex items-start gap-4">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-blue-600 text-xs font-black text-white">MSc</span>
+            <div>
+              <p className="eyebrow">Research focus</p>
+              <h3 className="mt-2 text-xl leading-snug text-white md:text-2xl">
+                Emotion and urgency classification in social-media crisis messages
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-zinc-400">
+                My thesis used multitask transformer architectures to study how
+                machines can recognize emotional context and urgency during crises.
+                That work now informs how I think about language, attention, and
+                human-centered product decisions.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:gap-4">
+        {focusAreas.map((area, index) => (
+          <motion.div
+            key={area.label}
+            className="bento-card flex items-center gap-4 p-4 sm:block sm:p-5"
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            whileHover={{ y: -4, borderColor: "rgba(96,165,250,.55)" }}
+            transition={{ duration: 0.55, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="text-xs font-black text-blue-400">{area.number}</span>
+            <div className="sm:mt-6">
+              <p className="font-bold text-white">{area.label}</p>
+              <p className="mt-1 text-sm text-zinc-500">{area.detail}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export default About;

@@ -5,8 +5,8 @@ const container = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.07,
-      delayChildren: 0.08,
+      staggerChildren: 0.045,
+      delayChildren: 0.04,
     },
   },
 };
@@ -17,7 +17,7 @@ const word = {
     y: "0%",
     rotate: 0,
     opacity: 1,
-    transition: { duration: 0.78, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.64, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -30,7 +30,7 @@ const AnimatedHeading = ({ children, className = "" }) => {
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.7 }}
+      viewport={{ once: true, amount: 0.65 }}
       aria-label={children}
     >
       {words.map((item, index) => (

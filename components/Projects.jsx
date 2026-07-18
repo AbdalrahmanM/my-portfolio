@@ -1,4 +1,3 @@
-import React from "react"
 import ProjectItem from "./ProjectItem";
 import Reveal from "./Reveal";
 import AnimatedHeading from "./AnimatedHeading";
@@ -12,55 +11,53 @@ import Carshow from "../public/assets/projects/Carshow.jpg";
 import nike from "../public/assets/projects/nike.png";
 import travling from "../public/assets/projects/travling.png";
 import hastabilgi from "../public/assets/projects/hastabilgi.png";
-import hospitaltest from "../public/assets/projects/HospitalTest.jpg"
+import hospitaltest from "../public/assets/projects/HospitalTest.jpg";
 
 const projects = [
-    { title: "Givingly", tech: "Next.js / Tailwind / Firebase", image: Givingly, url: "/Givingly", featured: true },
-    { title: "Hospital Test", tech: "React / UI System", image: hospitaltest, url: "/HospitalTest" },
-    { title: "Hasta Bilgi", tech: "React / Healthcare", image: hastabilgi, url: "/hastabilgi" },
-    { title: "Car Showcase", tech: "Next.js / API", image: Carshow, url: "/Carshow", featured: true },
-    { title: "Movies Finder", tech: "JavaScript / API", image: Movies, url: "/Movies" },
-    { title: "Netflix Clone", tech: "React / Firebase", image: netflix, url: "/Netflix" },
-    { title: "Nike Store", tech: "React / Tailwind", image: nike, url: "/nike" },
-    { title: "Traveling", tech: "React / UI", image: travling, url: "/travling" },
-    { title: "Hangman", tech: "JavaScript Game", image: hangman, url: "/hangman" },
+  { title: "Givingly", type: "Crowdfunding platform", tech: "Next.js / Tailwind / Firebase", image: Givingly, url: "/Givingly", span: "md:col-span-8" },
+  { title: "Hospital Test", type: "Healthcare interface", tech: "React / UI System", image: hospitaltest, url: "/HospitalTest", span: "md:col-span-4" },
+  { title: "Hasta Bilgi", type: "Patient information", tech: "React / Healthcare", image: hastabilgi, url: "/hastabilgi", span: "md:col-span-4" },
+  { title: "Car Showcase", type: "Automotive discovery", tech: "Next.js / API", image: Carshow, url: "/Carshow", span: "md:col-span-8" },
+  { title: "Movies Finder", type: "Search experience", tech: "JavaScript / API", image: Movies, url: "/Movies", span: "md:col-span-5" },
+  { title: "Netflix Clone", type: "Streaming interface", tech: "React / Firebase", image: netflix, url: "/Netflix", span: "md:col-span-7" },
+  { title: "Nike Store", type: "Commerce concept", tech: "React / Tailwind", image: nike, url: "/nike", span: "md:col-span-7" },
+  { title: "Traveling", type: "Travel discovery", tech: "React / UI", image: travling, url: "/travling", span: "md:col-span-5" },
+  { title: "Hangman", type: "Interactive game", tech: "JavaScript Game", image: hangman, url: "/hangman", span: "md:col-span-12" },
 ];
 
-const accents = ["#ffd166", "#72f2c1", "#7dd3fc", "#ff8f70"];
+const Projects = () => (
+  <section id="project" className="mx-auto max-w-[1240px] overflow-hidden px-4 py-16 sm:px-6 md:py-28 lg:px-8">
+    <Reveal>
+      <SectionSignal index="03" label="Projects / Selected Work" />
+      <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-8">
+          <AnimatedHeading className="text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
+            Selected builds with product energy.
+          </AnimatedHeading>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base md:leading-8">
+            A visual index of web applications, API products, healthcare tools,
+            and interface experiments. Each project opens into its own case study.
+          </p>
+        </div>
+        <div className="bento-card flex items-end justify-between p-5 lg:col-span-4">
+          <div>
+            <p className="eyebrow">Project archive</p>
+            <p className="mt-2 text-sm text-zinc-500">Built across modern frontend stacks</p>
+          </div>
+          <span className="text-5xl font-black leading-none text-blue-400">09</span>
+        </div>
+      </div>
+    </Reveal>
 
-const Projects = () => {
-    return (
-        <section id="project" className="mx-auto max-w-[1240px] px-4 py-16 md:py-28 section-slide-in">
-            <Reveal>
-                <SectionSignal index="03" label="Projects / Selected Work" accent="amber" />
-                <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-                    <div>
-                        <AnimatedHeading className="py-4 text-3xl text-white md:text-6xl">Selected builds with product energy.</AnimatedHeading>
-                        <p className="max-w-2xl text-sm leading-7 text-white/62 md:text-base md:leading-8">
-                            Selected work across web apps, UI builds, API integrations,
-                            and product-focused frontend experiences.
-                        </p>
-                    </div>
-                </div>
-            </Reveal>
-            <SwipeHint accent="#ffd166" />
-            <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-10 md:grid md:touch-auto md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0">
-                {projects.map((project, index) => (
-                    <div key={project.title} className={`w-full min-w-full shrink-0 snap-start md:min-w-0 md:snap-none ${project.featured ? "md:col-span-2" : ""}`}>
-                        <ProjectItem
-                            title={project.title}
-                            tech={project.tech}
-                            backgroundImg={project.image}
-                            projectUrl={project.url}
-                            index={index}
-                            accent={accents[index % accents.length]}
-                            featured={project.featured}
-                        />
-                    </div>
-                ))}
-            </div>
-        </section>
-    )
-}
+    <SwipeHint accent="#60a5fa" label="Swipe to explore projects" />
+    <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-10 md:grid md:touch-auto md:grid-cols-12 md:gap-4 md:overflow-visible md:pb-0">
+      {projects.map((project, index) => (
+        <div key={project.title} className={`w-full min-w-full shrink-0 snap-start md:min-w-0 md:snap-none ${project.span}`}>
+          <ProjectItem {...project} backgroundImg={project.image} projectUrl={project.url} index={index} />
+        </div>
+      ))}
+    </div>
+  </section>
+);
 
-export default Projects
+export default Projects;

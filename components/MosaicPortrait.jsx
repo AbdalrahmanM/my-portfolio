@@ -11,10 +11,10 @@ import {
 import portrait from "../public/assets/abdo1.jpg";
 
 const tiles = [
-  { left: "0%", top: "0%", x: -86, y: -72, rotate: -9, radius: "24px 0px 0px 0px" },
-  { left: "-100%", top: "0%", x: 86, y: -58, rotate: 7, radius: "0px 24px 0px 0px" },
-  { left: "0%", top: "-100%", x: -72, y: 78, rotate: 6, radius: "0px 0px 0px 24px" },
-  { left: "-100%", top: "-100%", x: 82, y: 72, rotate: -8, radius: "0px 0px 24px 0px" },
+  { left: "0%", top: "0%", x: -86, y: -72, rotate: -9, radius: "8px 0px 0px 0px" },
+  { left: "-100%", top: "0%", x: 86, y: -58, rotate: 7, radius: "0px 8px 0px 0px" },
+  { left: "0%", top: "-100%", x: -72, y: 78, rotate: 6, radius: "0px 0px 0px 8px" },
+  { left: "-100%", top: "-100%", x: 82, y: 72, rotate: -8, radius: "0px 0px 8px 0px" },
 ];
 
 const MosaicTile = ({ progress, tile, index, reducedMotion }) => {
@@ -23,7 +23,7 @@ const MosaicTile = ({ progress, tile, index, reducedMotion }) => {
   const rotate = useTransform(progress, [0, 0.82], [reducedMotion ? 0 : tile.rotate, 0]);
   const scale = useTransform(progress, [0, 0.82], [reducedMotion ? 1 : 0.88, 1]);
   const opacity = useTransform(progress, [0, 0.26], [reducedMotion ? 1 : 0.18, 1]);
-  const borderRadius = useTransform(progress, [0, 0.82], ["18px 18px 18px 18px", tile.radius]);
+  const borderRadius = useTransform(progress, [0, 0.82], ["8px 8px 8px 8px", tile.radius]);
   const borderColor = useTransform(progress, [0, 0.82], ["rgba(255,255,255,0.12)", "rgba(255,255,255,0)"]);
   const borderWidth = useTransform(progress, [0, 0.82], [1, 0]);
 
@@ -69,9 +69,9 @@ const MosaicPortrait = () => {
   const lineScale = useTransform(progress, [0.6, 0.95], [0, 1]);
 
   return (
-    <motion.div ref={containerRef} className="relative mx-auto w-full max-w-[460px] py-14 md:py-20">
+    <motion.div ref={containerRef} className="relative mx-auto w-full max-w-[460px] py-8 md:py-12">
       <motion.div
-        className="absolute inset-[6%] rounded-[2.25rem] border border-[#72f2c1]/20"
+        className="absolute inset-[6%] rounded-lg border border-blue-400/25"
         style={{ rotate: frameRotate }}
       />
       <motion.div
@@ -90,17 +90,17 @@ const MosaicPortrait = () => {
       </motion.div>
 
       <motion.div
-        className="absolute -bottom-1 left-[7%] z-20 w-[86%] rounded-2xl border border-white/10 bg-[#060d0c]/90 p-4 shadow-[0_20px_65px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+        className="absolute bottom-0 left-[7%] z-20 w-[86%] rounded-lg border border-white/10 bg-[#09090b]/90 p-4 shadow-[0_20px_65px_rgba(0,0,0,0.45)] backdrop-blur-xl"
         style={{ opacity: labelOpacity, y: labelY }}
       >
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#7dd3fc]">Master&apos;s research</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-blue-400">Master&apos;s research</p>
             <p className="mt-1 text-sm font-semibold text-white">AI, emotion and crisis urgency</p>
           </div>
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#7dd3fc] to-[#ffd166] text-xs font-black text-[#060d0c]">AI</span>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-blue-600 text-xs font-black text-white">AI</span>
         </div>
-        <motion.div className="mt-3 h-px origin-left bg-gradient-to-r from-[#7dd3fc] via-[#72f2c1] to-transparent" style={{ scaleX: lineScale }} />
+        <motion.div className="mt-3 h-px origin-left bg-gradient-to-r from-blue-400 via-blue-600 to-transparent" style={{ scaleX: lineScale }} />
       </motion.div>
     </motion.div>
   );

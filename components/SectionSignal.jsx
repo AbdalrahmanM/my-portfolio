@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const accents = {
-  mint: { color: "#72f2c1", soft: "rgba(114,242,193,0.16)" },
-  sky: { color: "#7dd3fc", soft: "rgba(125,211,252,0.16)" },
-  amber: { color: "#ffd166", soft: "rgba(255,209,102,0.16)" },
-  coral: { color: "#ff8f70", soft: "rgba(255,143,112,0.16)" },
+  mint: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
+  sky: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
+  amber: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
+  coral: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
 };
 
 const SectionSignal = ({ index, label, accent = "mint", className = "" }) => {
@@ -15,10 +15,10 @@ const SectionSignal = ({ index, label, accent = "mint", className = "" }) => {
       className={`mb-5 flex items-center gap-3 ${className}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.8 }}
+      viewport={{ once: true, amount: 0.8 }}
     >
       <motion.span
-        className="flex h-9 min-w-9 items-center justify-center rounded-full border text-[11px] font-black"
+        className="flex h-9 min-w-9 items-center justify-center rounded-md border text-[11px] font-black"
         style={{ color: theme.color, borderColor: theme.soft, backgroundColor: theme.soft }}
         variants={{ hidden: { scale: 0, rotate: -90 }, visible: { scale: 1, rotate: 0 } }}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}

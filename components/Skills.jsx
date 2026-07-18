@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Html from "../public/assets/skills/html.png";
@@ -22,107 +21,89 @@ import SwipeHint from "./SwipeHint";
 const groups = [
   {
     title: "Interface Core",
-    note: "Semantic, responsive, precise",
-    accent: "#7dd3fc",
+    note: "Semantic structure, responsive behavior, precise visual systems.",
+    span: "md:col-span-7",
     skills: [["HTML", Html], ["CSS", Css], ["JavaScript", Javascript], ["Tailwind", Tailwind]],
   },
   {
     title: "Product Frameworks",
-    note: "Stateful, scalable applications",
-    accent: "#72f2c1",
+    note: "Stateful applications built to remain clear as they grow.",
+    span: "md:col-span-5",
     skills: [["React", ReactImg], ["Next.js", NextJS], ["Redux", Redux]],
   },
   {
     title: "Cloud & Data",
-    note: "Connected systems and intelligence",
-    accent: "#ffd166",
+    note: "Connected systems, structured data, and applied intelligence.",
+    span: "md:col-span-5",
     skills: [["Firebase", Firebase], ["Python", Python], ["MSS", MSS]],
   },
   {
     title: "Engineering Tools",
-    note: "Reliable delivery and collaboration",
-    accent: "#ff8f70",
+    note: "Reliable delivery, collaboration, and maintainable code.",
+    span: "md:col-span-7",
     skills: [["Git", Git], ["GitHub", Github], ["C#", C]],
   },
 ];
 
-const Skills = () => {
-  return (
-    <section id="skills" className="w-full overflow-hidden py-16 md:py-28 section-slide-in">
-      <div className="mx-auto max-w-[1240px] px-4">
-        <Reveal>
-          <SectionSignal index="02" label="Skills / Signal Deck" accent="sky" />
-          <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
-            <AnimatedHeading className="text-3xl text-white md:text-6xl">Different tools. One product mindset.</AnimatedHeading>
-            <p className="text-sm leading-7 text-white/62 md:text-base md:leading-8">
-              I combine interface craft, application architecture, connected
-              data, and engineering discipline. The stack changes; the standard
-              of clarity does not.
-            </p>
-          </div>
-        </Reveal>
-
-        <SwipeHint accent="#7dd3fc" />
-        <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-8 md:grid md:touch-auto md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0">
-          {groups.map((group, index) => (
-            <motion.article
-              key={group.title}
-              className="glass-card w-full min-w-full shrink-0 snap-start p-5 md:min-w-0 md:snap-none md:p-7"
-              initial={{ opacity: 0, y: 60, rotate: index % 2 === 0 ? -2 : 2 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-              viewport={{ once: false, amount: 0.35 }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.8, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div
-                className="pointer-events-none absolute inset-0 opacity-40"
-                style={{ background: `radial-gradient(circle at 15% 0%, ${group.accent}35, transparent 38%)` }}
-              />
-              <motion.div
-                className="pointer-events-none absolute left-0 right-0 top-0 h-px"
-                style={{ background: `linear-gradient(90deg, transparent, ${group.accent}, transparent)` }}
-                animate={{ y: [0, 260, 0], opacity: [0, 0.8, 0] }}
-                transition={{ duration: 5.5 + index, repeat: Infinity, ease: "easeInOut" }}
-              />
-
-              <div className="relative z-10 flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.28em]" style={{ color: group.accent }}>Signal 0{index + 1}</p>
-                  <h3 className="mt-2 text-2xl text-white md:text-3xl">{group.title}</h3>
-                  <p className="mt-2 text-sm text-white/50">{group.note}</p>
-                </div>
-                <motion.span
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-xs font-black"
-                  style={{ color: group.accent, borderColor: `${group.accent}45`, backgroundColor: `${group.accent}14` }}
-                  animate={{ rotate: [0, 90, 180, 270, 360] }}
-                  transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-                >
-                  +
-                </motion.span>
-              </div>
-
-              <div className="relative z-10 mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4">
-                {group.skills.map(([name, icon], skillIndex) => (
-                  <motion.div
-                    key={name}
-                    className="flex flex-col items-center gap-2 rounded-2xl border border-white/[0.08] bg-black/15 p-3 text-center"
-                    initial={{ opacity: 0, scale: 0.75 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false, amount: 0.7 }}
-                    whileHover={{ scale: 1.08, borderColor: group.accent }}
-                    transition={{ duration: 0.45, delay: 0.18 + skillIndex * 0.06 }}
-                  >
-                    <Image src={icon} width={38} height={38} alt={`${name} icon`} />
-                    <span className="text-xs font-bold text-white/75">{name}</span>
-                  </motion.div>
-                ))}
-              </div>
-              </motion.article>
-          ))}
+const Skills = () => (
+  <section id="skills" className="w-full overflow-hidden py-16 md:py-28">
+    <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+      <Reveal>
+        <SectionSignal index="02" label="Skills / Capability Grid" />
+        <div className="grid gap-5 lg:grid-cols-12 lg:items-end">
+          <AnimatedHeading className="text-3xl leading-tight text-white sm:text-4xl md:text-5xl lg:col-span-7">
+            Different tools. One product mindset.
+          </AnimatedHeading>
+          <p className="text-sm leading-7 text-zinc-400 md:text-base md:leading-8 lg:col-span-5">
+            I combine interface craft, application architecture, connected data,
+            and engineering discipline. The stack changes; the standard of clarity does not.
+          </p>
         </div>
+      </Reveal>
+
+      <SwipeHint accent="#60a5fa" />
+      <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-10 md:grid md:touch-auto md:grid-cols-12 md:gap-4 md:overflow-visible md:pb-0">
+        {groups.map((group, index) => (
+          <motion.article
+            key={group.title}
+            className={`bento-card w-full min-w-full shrink-0 snap-start p-5 md:min-w-0 md:snap-none md:p-7 ${group.span}`}
+            initial={{ opacity: 0, y: 50, clipPath: "inset(12% 0 0 0 round 8px)" }}
+            whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0 round 8px)" }}
+            viewport={{ once: true, amount: 0.3 }}
+            whileHover={{ y: -4, borderColor: "rgba(96,165,250,.55)" }}
+            transition={{ duration: 0.68, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-70" />
+            <div className="relative z-10 flex items-start justify-between gap-4">
+              <div>
+                <p className="eyebrow">Capability 0{index + 1}</p>
+                <h3 className="mt-3 text-2xl text-white md:text-3xl">{group.title}</h3>
+                <p className="mt-2 max-w-md text-sm leading-6 text-zinc-500">{group.note}</p>
+              </div>
+              <span className="text-5xl font-black leading-none text-white/[0.04] md:text-7xl">0{index + 1}</span>
+            </div>
+
+            <div className="relative z-10 mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4">
+              {group.skills.map(([name, icon], skillIndex) => (
+                <motion.div
+                  key={name}
+                  className="flex min-h-[96px] flex-col items-center justify-center gap-2 rounded-lg border border-white/[0.08] bg-[#09090b]/45 p-3 text-center"
+                  initial={{ opacity: 0, scale: 0.88 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.7 }}
+                  whileHover={{ y: -3, borderColor: "rgba(96,165,250,.65)" }}
+                  transition={{ duration: 0.42, delay: 0.16 + skillIndex * 0.055 }}
+                >
+                  <Image src={icon} width={38} height={38} alt={`${name} icon`} />
+                  <span className="text-xs font-bold text-zinc-300">{name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.article>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Skills;

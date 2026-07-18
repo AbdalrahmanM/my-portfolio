@@ -31,8 +31,40 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Vercel deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contact form sends mail from the `/api/mail` serverless route. Add these
+variables in **Vercel > Project Settings > Environment Variables** for the
+Production environment, then redeploy the project:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```text
+SENDGRID_API_KEY=your_sendgrid_api_key
+SENDGRID_FROM_EMAIL=a_sender_verified_in_sendgrid
+CONTACT_TO_EMAIL=abdodj18@gmail.com
+CONTACT_ALLOWED_ORIGINS=https://your-production-domain.vercel.app
+CONTACT_RATE_LIMIT_SALT=a_long_random_value
+```
+
+`SENDGRID_FROM_EMAIL` must exactly match a verified Single Sender or an address
+on an authenticated SendGrid domain. The API intentionally returns `503` when
+`SENDGRID_API_KEY` is missing and `502` when SendGrid rejects delivery.
+
+Cloudflare Turnstile is recommended for public deployments. Create one widget
+for the production domain and add the matching pair:
+
+```text
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_public_site_key
+TURNSTILE_SECRET_KEY=your_private_secret_key
+TURNSTILE_EXPECTED_HOSTNAME=your-production-domain.vercel.app
+```
+
+Never commit real API keys or secret keys. Use `.env.local` for local testing;
+`.env.example` documents the complete variable list.
+
+## Design system
+
+The portfolio redesign is documented in
+`design-system/abdulrahman-portfolio/MASTER.md`. It is based on the official
+UI/UX Pro Max Portfolio Grid recommendation: asymmetric bento composition,
+Inter typography, dark cinematic neutrals, cobalt interaction color, and
+purposeful Framer Motion transitions with reduced-motion support.
