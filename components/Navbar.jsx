@@ -7,21 +7,44 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineDownload } from "react-icons/hi";
 
 const navItems = [
-  { href: "/#home", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/#project", label: "Projects" },
-  { href: "/Certificate", label: "Certificates" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#home", label: "Home", section: "home" },
+  { href: "/#about", label: "About", section: "about" },
+  { href: "/#skills", label: "Skills", section: "skills" },
+  { href: "/#project", label: "Projects", section: "project" },
+  { href: "/Certificate", label: "Certificates", section: null },
+  { href: "/#contact", label: "Contact", section: "contact" },
 ];
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  useEffect(() => {
+    if (window.location.pathname !== "/") return undefined;
+    const sectionIds = navItems.map((item) => item.section).filter(Boolean);
+
+    const updateActiveSection = () => {
+      const activationLine = window.innerHeight * 0.38;
+      const active = sectionIds.reduce((current, id) => {
+        const section = document.getElementById(id);
+        return section && section.getBoundingClientRect().top <= activationLine ? id : current;
+      }, "home");
+      setActiveSection(active);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
 
   return (
     <>
@@ -41,8 +64,15 @@ export const Navbar = () => {
 
           <nav className="hidden items-center gap-1 rounded-md border border-white/10 bg-white/[0.04] p-1 lg:flex" aria-label="Primary navigation">
             {navItems.map((item) => (
-              <Link key={item.label} href={item.href} className="flex min-h-10 items-center rounded-md px-3 text-sm font-semibold text-zinc-400 transition duration-200 hover:bg-spark hover:text-canvas">
-                {item.label}
+              <Link key={item.label} href={item.href} className={`relative flex min-h-10 items-center rounded-md px-3 text-sm font-semibold transition duration-200 ${activeSection === item.section ? "text-canvas" : "text-zinc-400 hover:text-white"}`}>
+                {activeSection === item.section && (
+                  <motion.span
+                    layoutId="active-nav-section"
+                    className="absolute inset-0 rounded-md bg-spark"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
               </Link>
             ))}
           </nav>
@@ -87,7 +117,7 @@ export const Navbar = () => {
               <nav className="mt-5 grid gap-2" aria-label="Mobile navigation">
                 {navItems.map((item, index) => (
                   <motion.div key={item.label} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.045 }}>
-                    <Link href={item.href} onClick={() => setOpen(false)} className="group flex min-h-[54px] items-center justify-between rounded-lg border border-white/10 bg-panel px-4 text-base font-bold text-white transition hover:border-spark hover:bg-spark hover:text-canvas">
+                    <Link href={item.href} onClick={() => setOpen(false)} className={`group flex min-h-[54px] items-center justify-between rounded-lg border px-4 text-base font-bold transition hover:border-spark hover:bg-spark hover:text-canvas ${activeSection === item.section ? "border-spark/60 bg-spark/10 text-spark" : "border-white/10 bg-panel text-white"}`}>
                       {item.label}
                       <span className="text-xs text-zinc-500 transition group-hover:text-canvas">0{index + 1}</span>
                     </Link>

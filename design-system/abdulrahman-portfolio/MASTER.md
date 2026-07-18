@@ -30,7 +30,7 @@ The generated light palette is evolved into a contemporary dark editorial system
 
 ## Layout
 
-- Full-bleed editorial studio hero distinct from the original portrait mosaic
+- Full-bleed interactive hero field with kinetic typography, cursor parallax, and live signal paths
 - 12-column asymmetric bento grid on desktop
 - One content column or horizontal snap decks on mobile
 - Maximum content width: 1240px
@@ -39,7 +39,9 @@ The generated light palette is evolved into a contemporary dark editorial system
 
 ## Motion
 
-- Section reveals: 600-750ms, expo-style easing, once per visit
+- Section reveals: scroll-linked approach motion with nested 600-750ms choreography
+- Section transitions: numbered portals with moving signal rails and directional continuity
+- Hero motion: cursor-responsive on fine pointers, autonomous signal motion on touch screens
 - Micro-interactions: 150-300ms
 - Animate transform and opacity; avoid layout-changing width/height animation
 - Preserve spatial continuity between project cards and case studies

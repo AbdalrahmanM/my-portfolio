@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineArrowDown, HiOutlineArrowUpRight } from "react-icons/hi2";
-import heroStudio from "../public/assets/hero-studio-v2.png";
+import HeroSignalField from "./HeroSignalField";
 
 const socialLinks = [
   { label: "LinkedIn", icon: FaLinkedinIn, href: "https://www.linkedin.com/in/abdulrahman-alsamaraie/" },
@@ -38,29 +37,12 @@ export const Main = () => {
 
   return (
     <section id="home" className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-white/10">
-      <motion.div
-        className="absolute inset-0"
-        initial={reducedMotion ? false : { scale: 1.08, filter: "grayscale(0.75)" }}
-        animate={{ scale: 1, filter: "grayscale(0)" }}
-        transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <Image
-          src={heroStudio}
-          alt="Abdulrahman Mudher in a contemporary engineering and AI research studio"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[38%_center] sm:object-[36%_center] lg:object-center"
-        />
-      </motion.div>
-
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,9,10,0.04)_0%,rgba(8,9,10,0.48)_45%,#08090a_100%)] lg:bg-[linear-gradient(90deg,rgba(8,9,10,0.03)_0%,rgba(8,9,10,0.2)_38%,rgba(8,9,10,0.88)_67%,#08090a_100%)]" />
-      <div className="signal-grid absolute inset-0 opacity-20 mix-blend-screen" />
+      <HeroSignalField />
 
       {!reducedMotion && (
         <>
           <motion.div
-            className="absolute inset-y-0 left-1/3 hidden w-px bg-ice/35 lg:block"
+            className="absolute inset-y-0 left-[8%] hidden w-px bg-ice/25 lg:block"
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -74,28 +56,32 @@ export const Main = () => {
         </>
       )}
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-4rem)] max-w-[1240px] flex-col justify-end px-4 pb-5 pt-28 sm:px-6 sm:pb-7 lg:items-end lg:justify-center lg:px-8 lg:pb-32 lg:pt-36">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-4rem)] max-w-[1240px] flex-col justify-end px-4 pb-5 pt-28 sm:px-6 sm:pb-7 lg:items-start lg:justify-center lg:px-8 lg:pb-32 lg:pt-36">
         <motion.div
-          className="w-full text-center lg:max-w-[620px] lg:text-left"
+          className="w-full text-center lg:max-w-[660px] lg:text-left"
           variants={container}
           initial="hidden"
           animate="visible"
         >
           <motion.div variants={item} className="mb-4 inline-flex items-center gap-3 rounded-md border border-spark/30 bg-canvas/75 px-3 py-2 backdrop-blur-xl">
-            <span className="h-2 w-2 bg-spark shadow-[0_0_18px_rgba(183,243,74,0.9)]" />
+            <motion.span
+              className="h-2 w-2 bg-spark shadow-[0_0_18px_rgba(183,243,74,0.9)]"
+              animate={reducedMotion ? undefined : { opacity: [0.35, 1, 0.35], scale: [0.8, 1.2, 0.8] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            />
             <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-100 sm:text-xs">
               Frontend engineer and AI researcher
             </span>
           </motion.div>
 
-          <motion.p variants={item} className="eyebrow mb-3">Portfolio / 2026</motion.p>
-          <motion.h1 variants={item} className="text-[clamp(2.65rem,11vw,4.75rem)] font-black leading-[0.9] text-white">
+          <motion.p variants={item} className="eyebrow mb-3">Portfolio / Interactive system / 2026</motion.p>
+          <motion.h1 variants={item} className="text-[clamp(2.75rem,11vw,5.4rem)] font-black leading-[0.88] text-white">
             Abdulrahman
             <span className="block text-gradient">Mudher.</span>
           </motion.h1>
           <motion.p variants={item} className="mx-auto mt-4 max-w-xl text-sm font-medium leading-6 text-zinc-200 sm:text-base sm:leading-7 lg:mx-0 lg:text-lg">
-            I create precise, responsive digital products where expressive motion,
-            clear systems, and AI-informed thinking work together.
+            I engineer responsive digital products where expressive motion,
+            clear systems, and AI-informed thinking move as one.
           </motion.p>
 
           <motion.div variants={item} className="mt-6 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
@@ -132,7 +118,7 @@ export const Main = () => {
             <motion.div
               key={signal.index}
               variants={item}
-              className="min-w-0 rounded-lg border border-white/10 bg-canvas/80 p-2.5 backdrop-blur-xl sm:p-4 lg:flex lg:items-center lg:gap-4"
+              className="group min-w-0 rounded-lg border border-white/10 bg-canvas/80 p-2.5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-spark/50 sm:p-4 lg:flex lg:items-center lg:gap-4"
             >
               <span className="text-[10px] font-black text-spark sm:text-xs">{signal.index}</span>
               <div className="mt-1 min-w-0 lg:mt-0">
