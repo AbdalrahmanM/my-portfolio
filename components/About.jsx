@@ -25,7 +25,7 @@ const About = () => (
           <AnimatedHeading className="mt-4 max-w-2xl text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
             Design instinct backed by engineering and AI research.
           </AnimatedHeading>
-          <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-blue-300 md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-ice md:text-lg">
             I build interfaces with clarity, curiosity, and a master&apos;s-level AI foundation.
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base md:leading-8">
@@ -46,7 +46,7 @@ const About = () => (
 
         <Reveal delay={0.1} className="bento-card p-5 sm:p-7 lg:col-span-7">
           <div className="flex items-start gap-4">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-blue-600 text-xs font-black text-white">MSc</span>
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-spark text-xs font-black text-canvas">MSc</span>
             <div>
               <p className="eyebrow">Research focus</p>
               <h3 className="mt-2 text-xl leading-snug text-white md:text-2xl">
@@ -71,10 +71,10 @@ const About = () => (
             initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            whileHover={{ y: -4, borderColor: "rgba(96,165,250,.55)" }}
+            whileHover={{ y: -4, borderColor: "rgba(183,243,74,.5)" }}
             transition={{ duration: 0.55, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-xs font-black text-blue-400">{area.number}</span>
+            <span className="text-xs font-black text-spark">{area.number}</span>
             <div className="sm:mt-6">
               <p className="font-bold text-white">{area.label}</p>
               <p className="mt-1 text-sm text-zinc-500">{area.detail}</p>

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const accents = {
-  mint: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
-  sky: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
-  amber: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
-  coral: { color: "#60a5fa", soft: "rgba(37,99,235,0.18)" },
+  mint: { color: "#b7f34a", soft: "rgba(183,243,74,0.14)" },
+  sky: { color: "#7ae7f7", soft: "rgba(122,231,247,0.14)" },
+  amber: { color: "#b7f34a", soft: "rgba(183,243,74,0.14)" },
+  coral: { color: "#7ae7f7", soft: "rgba(122,231,247,0.14)" },
 };
 
 const SectionSignal = ({ index, label, accent = "mint", className = "" }) => {

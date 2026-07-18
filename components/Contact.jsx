@@ -94,16 +94,16 @@ const Contact = () => {
                   <h3 className="mt-3 text-2xl text-white">Open channel</h3>
                 </div>
                 <span className="relative mt-1 flex h-3 w-3">
-                  <span className="absolute inline-flex h-full w-full animate-ping bg-blue-400 opacity-70" />
-                  <span className="relative inline-flex h-3 w-3 bg-blue-400" />
+                  <span className="absolute inline-flex h-full w-full animate-ping bg-spark opacity-70" />
+                  <span className="relative inline-flex h-3 w-3 bg-spark" />
                 </span>
               </div>
 
-              <div className="my-7 flex h-24 items-end gap-1.5 rounded-lg border border-white/[0.08] bg-[#09090b]/55 px-4 py-3" aria-hidden="true">
+              <div className="my-7 flex h-24 items-end gap-1.5 rounded-lg border border-white/[0.08] bg-canvas/55 px-4 py-3" aria-hidden="true">
                 {[38, 68, 48, 82, 55, 92, 44, 72, 36, 64, 50, 86].map((height, index) => (
                   <motion.span
                     key={`${height}-${index}`}
-                    className="flex-1 rounded-sm bg-blue-500"
+                    className={index % 3 === 0 ? "flex-1 rounded-sm bg-spark" : "flex-1 rounded-sm bg-ice"}
                     animate={reducedMotion ? { height: `${height}%` } : { height: [`${height * 0.45}%`, `${height}%`, `${height * 0.58}%`] }}
                     transition={{ duration: 1.7 + index * 0.08, repeat: Infinity, ease: "easeInOut" }}
                   />
@@ -117,7 +117,7 @@ const Contact = () => {
 
               <div className="mt-auto grid grid-cols-3 gap-2 pt-7">
                 {contactLinks.map(([label, Icon, href]) => (
-                  <Link key={label} href={href} className="flex min-h-[72px] flex-col items-center justify-center gap-2 rounded-lg border border-white/[0.08] bg-[#09090b]/45 px-2 text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-400 transition hover:border-blue-400 hover:text-blue-300">
+                  <Link key={label} href={href} className="flex min-h-[72px] flex-col items-center justify-center gap-2 rounded-lg border border-white/[0.08] bg-canvas/50 px-2 text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-400 transition hover:border-ice hover:text-ice">
                     <Icon size={17} />{label}
                   </Link>
                 ))}
@@ -162,12 +162,12 @@ const Contact = () => {
                 </div>
               )}
 
-              <button type="submit" disabled={status.type === "submitting" || !startedAt} aria-busy={status.type === "submitting"} className="mt-5 flex min-h-[52px] w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0">
+              <button type="submit" disabled={status.type === "submitting" || !startedAt} aria-busy={status.type === "submitting"} className="mt-5 flex min-h-[52px] w-full items-center justify-center gap-2 rounded-lg bg-spark px-5 font-black text-canvas transition duration-200 hover:-translate-y-0.5 hover:bg-ice disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0">
                 {status.type === "submitting" ? "Sending" : "Send message"}
                 <FaPaperPlane className="text-xs" />
               </button>
 
-              <div id="contact-status" className={`mt-4 flex min-h-6 items-center justify-center gap-2 text-center text-xs font-semibold ${status.type === "success" ? "text-green-400" : status.type === "error" ? "text-red-400" : status.type === "submitting" ? "text-blue-300" : "text-zinc-500"}`} role="status" aria-live="polite">
+              <div id="contact-status" className={`mt-4 flex min-h-6 items-center justify-center gap-2 text-center text-xs font-semibold ${status.type === "success" ? "text-green-400" : status.type === "error" ? "text-red-400" : status.type === "submitting" ? "text-ice" : "text-zinc-500"}`} role="status" aria-live="polite">
                 <HiOutlineShieldCheck size={16} />
                 {status.message || "Protected by validation, spam screening, and rate limiting."}
               </div>
@@ -176,7 +176,7 @@ const Contact = () => {
         </div>
 
         <div className="flex justify-center pt-8 md:pt-12">
-          <Link href="/#home" aria-label="Back to top" className="flex h-12 w-12 items-center justify-center rounded-md border border-white/10 bg-white/[0.06] text-blue-400 transition hover:-translate-y-1 hover:border-blue-400">
+          <Link href="/#home" aria-label="Back to top" className="flex h-12 w-12 items-center justify-center rounded-md border border-white/10 bg-white/[0.06] text-spark transition hover:-translate-y-1 hover:border-spark">
             <HiOutlineChevronDoubleUp size={24} />
           </Link>
         </div>

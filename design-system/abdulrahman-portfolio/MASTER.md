@@ -14,22 +14,23 @@
 
 ## Palette
 
-- Canvas: `#09090B`
-- Surface: `#18181B`
-- Elevated surface: `#202024`
-- Primary text: `#FAFAFA`
-- Muted text: `#A1A1AA`
-- Border: `#3F3F46`
-- Accent: `#2563EB`
-- Accent bright: `#60A5FA`
+- Canvas: `#08090A`
+- Surface: `#111315`
+- Elevated surface: `#171A1D`
+- Primary text: `#F4F7FB`
+- Muted text: `#9BA3AE`
+- Border: `#30363D`
+- Action accent: `#B7F34A`
+- Action accent bright: `#D5FF74`
+- Information signal: `#7AE7F7`
 - Success: `#22C55E`
 - Error: `#EF4444`
 
-The generated light palette is inverted for the selected "Modern Dark Cinema" typography mood while preserving its monochrome + blue strategy and contrast relationships.
+The generated light palette is evolved into a contemporary dark editorial system. Electric chartreuse marks actions and active states; ice cyan marks information and technical signals. Neither color is used as a large background field.
 
 ## Layout
 
-- Full-bleed portrait hero with content over real imagery
+- Full-bleed editorial studio hero distinct from the original portrait mosaic
 - 12-column asymmetric bento grid on desktop
 - One content column or horizontal snap decks on mobile
 - Maximum content width: 1240px
@@ -61,3 +62,4 @@ The generated light palette is inverted for the selected "Modern Dark Cinema" ty
 - Tiny mobile controls
 - Repeating blur-heavy animations on every scroll pass
 - Multiple competing accent colors
+- Reusing the same portrait treatment in multiple sections

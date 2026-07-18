@@ -14,7 +14,7 @@ const MotionDivider = ({ words, reverse = false }) => {
         {content.map((word, index) => (
           <span key={`${word}-${index}`} className="flex items-center gap-5 text-[11px] font-black uppercase tracking-[0.3em] text-zinc-500">
             {word}
-            <span className="h-1.5 w-1.5 rotate-45 bg-blue-500" aria-hidden="true" />
+            <span className={index % 2 === 0 ? "h-1.5 w-1.5 rotate-45 bg-spark" : "h-1.5 w-1.5 rotate-45 bg-ice"} aria-hidden="true" />
           </span>
         ))}
       </motion.div>

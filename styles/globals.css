@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --canvas: #09090b;
-  --surface: #18181b;
-  --surface-raised: #202024;
-  --ink: #fafafa;
-  --muted: #a1a1aa;
-  --line: #3f3f46;
-  --accent: #2563eb;
-  --accent-bright: #60a5fa;
+  --canvas: #08090a;
+  --surface: #111315;
+  --surface-raised: #171a1d;
+  --ink: #f4f7fb;
+  --muted: #9ba3ae;
+  --line: #30363d;
+  --accent: #b7f34a;
+  --accent-bright: #d5ff74;
+  --signal: #7ae7f7;
   --success: #22c55e;
   --danger: #ef4444;
 }
@@ -63,7 +64,7 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(37, 99, 235, 0.65) transparent;
+  scrollbar-color: rgba(183, 243, 74, 0.65) transparent;
 }
 
 *:focus-visible {
@@ -81,7 +82,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: white;
+  color: #08090a;
 }
 
 .section-kicker {
@@ -92,17 +93,17 @@ body {
 .soft-panel {
   @apply rounded-lg border shadow-[0_24px_90px_rgba(0,0,0,0.3)];
   border-color: rgba(255,255,255,.1);
-  background: rgba(24,24,27,.92);
+  background: rgba(17,19,21,.94);
 }
 
 .primary-link {
-  @apply inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition duration-200 hover:-translate-y-0.5;
+  @apply inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-black uppercase tracking-wider text-[#08090a] transition duration-200 hover:-translate-y-0.5;
   min-height: 44px;
   background: var(--accent);
-  box-shadow: 0 12px 34px rgba(37,99,235,.24);
+  box-shadow: 0 12px 34px rgba(183,243,74,.18);
 }
 
-.primary-link:hover { background: #1d4ed8; }
+.primary-link:hover { background: var(--accent-bright); }
 
 .secondary-link {
   @apply inline-flex items-center justify-center rounded-lg border px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition duration-200 hover:-translate-y-0.5;
@@ -116,7 +117,7 @@ body {
 .glass-card {
   @apply relative overflow-hidden rounded-lg border shadow-[0_24px_90px_rgba(0,0,0,0.26)];
   border-color: rgba(255,255,255,.1);
-  background: rgba(24,24,27,.9);
+  background: rgba(17,19,21,.92);
 }
 
 .glass-card::before {
@@ -124,7 +125,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(255,255,255,.08), transparent 34%, rgba(37,99,235,.14));
+  background: linear-gradient(135deg, rgba(255,255,255,.07), transparent 34%, rgba(122,231,247,.09));
   opacity: 0;
   transition: opacity .35s ease;
 }
@@ -135,7 +136,7 @@ body {
 
 .text-gradient {
   @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(100deg, #ffffff 0%, #dbeafe 48%, var(--accent-bright) 100%);
+  background-image: linear-gradient(100deg, #ffffff 0%, var(--signal) 54%, var(--accent-bright) 100%);
 }
 
 .signal-grid {
@@ -150,7 +151,7 @@ body {
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.1);
   border-radius: 8px;
-  background: rgba(24,24,27,.94);
+  background: rgba(17,19,21,.95);
   box-shadow: 0 22px 70px rgba(0,0,0,.26);
 }
 
@@ -184,11 +185,11 @@ body {
 }
 
 .field-input::placeholder { color: #71717a; }
-.field-input:hover { border-color: rgba(96,165,250,.5); }
+.field-input:hover { border-color: rgba(122,231,247,.5); }
 .field-input:focus {
   border-color: var(--accent-bright);
-  background: rgba(9,9,11,.94);
-  box-shadow: 0 0 0 3px rgba(37,99,235,.2);
+  background: rgba(8,9,10,.96);
+  box-shadow: 0 0 0 3px rgba(183,243,74,.16);
   outline: none;
 }
 

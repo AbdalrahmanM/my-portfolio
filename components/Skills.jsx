@@ -61,7 +61,7 @@ const Skills = () => (
         </div>
       </Reveal>
 
-      <SwipeHint accent="#60a5fa" />
+      <SwipeHint accent="#b7f34a" />
       <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-10 md:grid md:touch-auto md:grid-cols-12 md:gap-4 md:overflow-visible md:pb-0">
         {groups.map((group, index) => (
           <motion.article
@@ -70,10 +70,10 @@ const Skills = () => (
             initial={{ opacity: 0, y: 50, clipPath: "inset(12% 0 0 0 round 8px)" }}
             whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0 round 8px)" }}
             viewport={{ once: true, amount: 0.3 }}
-            whileHover={{ y: -4, borderColor: "rgba(96,165,250,.55)" }}
+            whileHover={{ y: -4, borderColor: "rgba(183,243,74,.5)" }}
             transition={{ duration: 0.68, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-70" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ice to-spark opacity-70" />
             <div className="relative z-10 flex items-start justify-between gap-4">
               <div>
                 <p className="eyebrow">Capability 0{index + 1}</p>
@@ -87,11 +87,11 @@ const Skills = () => (
               {group.skills.map(([name, icon], skillIndex) => (
                 <motion.div
                   key={name}
-                  className="flex min-h-[96px] flex-col items-center justify-center gap-2 rounded-lg border border-white/[0.08] bg-[#09090b]/45 p-3 text-center"
+                  className="flex min-h-[96px] flex-col items-center justify-center gap-2 rounded-lg border border-white/[0.08] bg-canvas/50 p-3 text-center"
                   initial={{ opacity: 0, scale: 0.88 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.7 }}
-                  whileHover={{ y: -3, borderColor: "rgba(96,165,250,.65)" }}
+                  whileHover={{ y: -3, borderColor: skillIndex % 2 === 0 ? "rgba(183,243,74,.6)" : "rgba(122,231,247,.6)" }}
                   transition={{ duration: 0.42, delay: 0.16 + skillIndex * 0.055 }}
                 >
                   <Image src={icon} width={38} height={38} alt={`${name} icon`} />

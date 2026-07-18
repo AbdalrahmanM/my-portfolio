@@ -6,7 +6,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 const ProjectItem = ({ title, type, tech, backgroundImg, projectUrl, index }) => {
   const glowX = useMotionValue(0);
   const glowY = useMotionValue(0);
-  const glow = useMotionTemplate`radial-gradient(420px circle at ${glowX}px ${glowY}px, rgba(37,99,235,.38), transparent 72%)`;
+  const glow = useMotionTemplate`radial-gradient(420px circle at ${glowX}px ${glowY}px, rgba(183,243,74,.24), transparent 72%)`;
 
   const handlePointerMove = (event) => {
     const bounds = event.currentTarget.getBoundingClientRect();
@@ -22,11 +22,11 @@ const ProjectItem = ({ title, type, tech, backgroundImg, projectUrl, index }) =>
         initial={{ opacity: 0, y: 58, clipPath: "inset(16% 0 0 0 round 8px)" }}
         whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0 round 8px)" }}
         viewport={{ once: true, amount: 0.22 }}
-        whileHover={{ y: -4, borderColor: "rgba(96,165,250,.65)" }}
+        whileHover={{ y: -4, borderColor: "rgba(183,243,74,.6)" }}
         transition={{ duration: 0.7, delay: Math.min(index * 0.035, 0.2), ease: [0.16, 1, 0.3, 1] }}
       >
         <Image src={backgroundImg} alt={`${title} project preview`} fill sizes="(max-width: 768px) 100vw, 66vw" className="object-cover transition duration-700 ease-out group-hover:scale-[1.035]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/25 to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/25 to-black/5" />
         <motion.div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: glow }} />
         <div className="signal-grid absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
 
@@ -39,11 +39,11 @@ const ProjectItem = ({ title, type, tech, backgroundImg, projectUrl, index }) =>
           <p className="eyebrow">{tech}</p>
           <div className="mt-3 flex items-end justify-between gap-4">
             <h3 className="text-3xl leading-none text-white sm:text-4xl">{title}</h3>
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-blue-600 text-white transition duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:bg-blue-500">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-spark text-canvas transition duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:bg-ice">
               <HiOutlineArrowUpRight size={22} />
             </span>
           </div>
-          <motion.div className="mt-5 h-px origin-left bg-gradient-to-r from-blue-400 via-blue-600 to-transparent" initial={{ scaleX: 0.25 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} />
+          <motion.div className="mt-5 h-px origin-left bg-gradient-to-r from-ice via-spark to-transparent" initial={{ scaleX: 0.25 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} />
         </div>
       </motion.article>
     </Link>

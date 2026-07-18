@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { HiOutlineArrowLeft } from "react-icons/hi2";
 
-const SwipeHint = ({ label = "Swipe left for more", accent = "#60a5fa" }) => {
+const SwipeHint = ({ label = "Swipe left for more", accent = "#b7f34a" }) => {
   return (
     <motion.div
       className="mt-6 flex items-center justify-between gap-4 md:hidden"
@@ -15,7 +15,7 @@ const SwipeHint = ({ label = "Swipe left for more", accent = "#60a5fa" }) => {
         style={{ borderColor: `${accent}35` }}
       >
         <motion.span
-          className="flex h-7 w-7 items-center justify-center rounded-md text-white"
+          className="flex h-7 w-7 items-center justify-center rounded-md text-[#08090a]"
           style={{ backgroundColor: accent }}
           animate={{ x: [5, -4, 5] }}
           transition={{ duration: 1.35, repeat: Infinity, ease: "easeInOut" }}

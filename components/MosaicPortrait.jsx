@@ -71,7 +71,7 @@ const MosaicPortrait = () => {
   return (
     <motion.div ref={containerRef} className="relative mx-auto w-full max-w-[460px] py-8 md:py-12">
       <motion.div
-        className="absolute inset-[6%] rounded-lg border border-blue-400/25"
+        className="absolute inset-[6%] rounded-lg border border-ice/25"
         style={{ rotate: frameRotate }}
       />
       <motion.div
@@ -90,17 +90,17 @@ const MosaicPortrait = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-[7%] z-20 w-[86%] rounded-lg border border-white/10 bg-[#09090b]/90 p-4 shadow-[0_20px_65px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+        className="absolute bottom-0 left-[7%] z-20 w-[86%] rounded-lg border border-white/10 bg-canvas/90 p-4 shadow-[0_20px_65px_rgba(0,0,0,0.45)] backdrop-blur-xl"
         style={{ opacity: labelOpacity, y: labelY }}
       >
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-blue-400">Master&apos;s research</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-ice">Master&apos;s research</p>
             <p className="mt-1 text-sm font-semibold text-white">AI, emotion and crisis urgency</p>
           </div>
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-blue-600 text-xs font-black text-white">AI</span>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-spark text-xs font-black text-canvas">AI</span>
         </div>
-        <motion.div className="mt-3 h-px origin-left bg-gradient-to-r from-blue-400 via-blue-600 to-transparent" style={{ scaleX: lineScale }} />
+        <motion.div className="mt-3 h-px origin-left bg-gradient-to-r from-ice via-spark to-transparent" style={{ scaleX: lineScale }} />
       </motion.div>
     </motion.div>
   );

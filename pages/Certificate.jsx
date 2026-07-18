@@ -48,12 +48,12 @@ const Certificate = () => (
           </div>
           <div className="bento-card flex items-end justify-between p-5 lg:col-span-4">
             <div><p className="eyebrow">Verified record</p><p className="mt-2 text-sm text-zinc-500">Continuous technical learning</p></div>
-            <span className="text-5xl font-black leading-none text-blue-400">11</span>
+            <span className="text-5xl font-black leading-none text-spark">11</span>
           </div>
         </div>
       </Reveal>
 
-      <SwipeHint accent="#60a5fa" label="Swipe to explore credentials" />
+      <SwipeHint accent="#b7f34a" label="Swipe to explore credentials" />
       <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-12 md:grid md:touch-auto md:grid-cols-12 md:gap-4 md:overflow-visible md:pb-0">
         {certificates.map((certificate, index) => (
           <motion.div
@@ -65,8 +65,8 @@ const Certificate = () => (
             transition={{ duration: 0.68, delay: Math.min(index * 0.04, 0.2), ease: [0.16, 1, 0.3, 1] }}
           >
             <Link href={certificate.href} className="group block h-full" aria-label={`View ${certificate.title} certificate`}>
-              <motion.article className="bento-card h-full p-3" whileHover={{ y: -4, borderColor: "rgba(96,165,250,.55)" }}>
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-70" />
+              <motion.article className="bento-card h-full p-3" whileHover={{ y: -4, borderColor: "rgba(183,243,74,.5)" }}>
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ice to-spark opacity-70" />
                 <div className="overflow-hidden rounded-md bg-white/[0.04]">
                   <Image src={certificate.image} alt={`${certificate.title} certificate`} className="aspect-[16/11] w-full object-contain transition duration-700 group-hover:scale-[1.025]" />
                 </div>
@@ -75,7 +75,7 @@ const Certificate = () => (
                     <p className="eyebrow">{certificate.issuer}</p>
                     <h2 className="mt-2 text-lg text-white md:text-xl">{certificate.title}</h2>
                   </div>
-                  <motion.span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-blue-600 text-white" whileHover={{ rotate: 6, scale: 1.04 }}>
+                  <motion.span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-spark text-canvas" whileHover={{ rotate: 6, scale: 1.04 }}>
                     <HiOutlineCheck size={20} />
                   </motion.span>
                 </div>

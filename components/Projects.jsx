@@ -44,12 +44,12 @@ const Projects = () => (
             <p className="eyebrow">Project archive</p>
             <p className="mt-2 text-sm text-zinc-500">Built across modern frontend stacks</p>
           </div>
-          <span className="text-5xl font-black leading-none text-blue-400">09</span>
+          <span className="text-5xl font-black leading-none text-spark">09</span>
         </div>
       </div>
     </Reveal>
 
-    <SwipeHint accent="#60a5fa" label="Swipe to explore projects" />
+    <SwipeHint accent="#b7f34a" label="Swipe to explore projects" />
     <div className="mt-3 flex touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-4 md:mt-10 md:grid md:touch-auto md:grid-cols-12 md:gap-4 md:overflow-visible md:pb-0">
       {projects.map((project, index) => (
         <div key={project.title} className={`w-full min-w-full shrink-0 snap-start md:min-w-0 md:snap-none ${project.span}`}>

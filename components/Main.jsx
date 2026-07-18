@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineArrowDown, HiOutlineArrowUpRight } from "react-icons/hi2";
-import portrait from "../public/assets/abdo1.jpg";
+import heroStudio from "../public/assets/hero-studio-v2.png";
 
 const socialLinks = [
   { label: "LinkedIn", icon: FaLinkedinIn, href: "https://www.linkedin.com/in/abdulrahman-alsamaraie/" },
@@ -40,42 +40,33 @@ export const Main = () => {
     <section id="home" className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-white/10">
       <motion.div
         className="absolute inset-0"
-        initial={reducedMotion ? false : { scale: 1.12, filter: "grayscale(1)" }}
-        animate={{ scale: 1, filter: "grayscale(0.18)" }}
+        initial={reducedMotion ? false : { scale: 1.08, filter: "grayscale(0.75)" }}
+        animate={{ scale: 1, filter: "grayscale(0)" }}
         transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
       >
         <Image
-          src={portrait}
-          alt=""
+          src={heroStudio}
+          alt="Abdulrahman Mudher in a contemporary engineering and AI research studio"
           fill
           priority
           sizes="100vw"
-          aria-hidden="true"
-          className="hidden scale-110 object-cover opacity-25 blur-2xl lg:block"
-        />
-        <Image
-          src={portrait}
-          alt="Abdulrahman Mudher"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[42%_center] sm:object-[38%_center] lg:object-contain lg:object-left"
+          className="object-cover object-[38%_center] sm:object-[36%_center] lg:object-center"
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,11,0.12)_0%,rgba(9,9,11,0.5)_45%,#09090b_100%)] lg:bg-[linear-gradient(90deg,rgba(9,9,11,0.08)_0%,rgba(9,9,11,0.24)_36%,rgba(9,9,11,0.91)_65%,#09090b_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,9,10,0.04)_0%,rgba(8,9,10,0.48)_45%,#08090a_100%)] lg:bg-[linear-gradient(90deg,rgba(8,9,10,0.03)_0%,rgba(8,9,10,0.2)_38%,rgba(8,9,10,0.88)_67%,#08090a_100%)]" />
       <div className="signal-grid absolute inset-0 opacity-20 mix-blend-screen" />
 
       {!reducedMotion && (
         <>
           <motion.div
-            className="absolute inset-y-0 left-1/3 hidden w-px bg-blue-400/40 lg:block"
+            className="absolute inset-y-0 left-1/3 hidden w-px bg-ice/35 lg:block"
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           />
           <motion.div
-            className="absolute inset-x-0 top-[28%] h-px bg-gradient-to-r from-transparent via-blue-400/35 to-transparent"
+            className="absolute inset-x-0 top-[28%] h-px bg-gradient-to-r from-transparent via-spark/35 to-transparent"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -90,9 +81,9 @@ export const Main = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={item} className="mb-4 inline-flex items-center gap-3 rounded-md border border-blue-400/30 bg-[#09090b]/70 px-3 py-2 backdrop-blur-xl">
-            <span className="h-2 w-2 bg-blue-400 shadow-[0_0_18px_rgba(96,165,250,0.9)]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-100 sm:text-xs">
+          <motion.div variants={item} className="mb-4 inline-flex items-center gap-3 rounded-md border border-spark/30 bg-canvas/75 px-3 py-2 backdrop-blur-xl">
+            <span className="h-2 w-2 bg-spark shadow-[0_0_18px_rgba(183,243,74,0.9)]" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-100 sm:text-xs">
               Frontend engineer and AI researcher
             </span>
           </motion.div>
@@ -123,7 +114,7 @@ export const Main = () => {
                 href={href}
                 aria-label={label}
                 title={label}
-                className="flex h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-[#09090b]/65 text-zinc-200 backdrop-blur-lg transition duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:text-blue-300"
+                className="flex h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-canvas/70 text-zinc-200 backdrop-blur-lg transition duration-200 hover:-translate-y-0.5 hover:border-ice hover:text-ice"
               >
                 <Icon />
               </Link>
@@ -141,9 +132,9 @@ export const Main = () => {
             <motion.div
               key={signal.index}
               variants={item}
-              className="min-w-0 rounded-lg border border-white/10 bg-[#09090b]/75 p-2.5 backdrop-blur-xl sm:p-4 lg:flex lg:items-center lg:gap-4"
+              className="min-w-0 rounded-lg border border-white/10 bg-canvas/80 p-2.5 backdrop-blur-xl sm:p-4 lg:flex lg:items-center lg:gap-4"
             >
-              <span className="text-[10px] font-black text-blue-400 sm:text-xs">{signal.index}</span>
+              <span className="text-[10px] font-black text-spark sm:text-xs">{signal.index}</span>
               <div className="mt-1 min-w-0 lg:mt-0">
                 <p className="truncate text-[8px] font-bold uppercase tracking-[0.11em] text-zinc-500 sm:text-[10px] sm:tracking-[0.16em]">{signal.label}</p>
                 <p className="mt-0.5 text-[10px] font-bold leading-4 text-zinc-100 sm:text-sm">{signal.value}</p>
@@ -156,7 +147,7 @@ export const Main = () => {
       <Link
         href="/#about"
         aria-label="Scroll to about section"
-        className="absolute bottom-28 left-5 z-20 hidden h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-black/30 text-white backdrop-blur-lg transition hover:border-blue-400 hover:text-blue-300 lg:flex"
+        className="absolute bottom-28 left-5 z-20 hidden h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-black/30 text-white backdrop-blur-lg transition hover:border-spark hover:text-spark lg:flex"
       >
         <HiOutlineArrowDown className="animate-bounce" />
       </Link>
