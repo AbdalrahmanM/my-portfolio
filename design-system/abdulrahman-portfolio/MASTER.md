@@ -39,6 +39,9 @@ The generated light palette is evolved into a contemporary dark editorial system
 
 ## Motion
 
+- Entry experience: full-screen continuous Three.js journey, approximately 8 seconds, skippable at all times
+- 3D language: a luminous slash draws first; cyan and chartreuse threads form the `A / M`; the camera travels through the mark into ribbons, an AI node field, and glass interface planes that settle into the homepage structure
+- 3D performance: capped device pixel ratio, reduced mobile particle count, pause when the tab is hidden
 - Section reveals: scroll-linked approach motion with nested 600-750ms choreography
 - Section transitions: numbered portals with moving signal rails and directional continuity
 - Hero motion: cursor-responsive on fine pointers, autonomous signal motion on touch screens
